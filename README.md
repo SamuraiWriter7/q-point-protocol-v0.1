@@ -116,6 +116,24 @@ This contribution is identified through an **Epicenter ID**.
 
 ---
 
+## Current Candidate Layer
+
+This repository currently contains both the initial protocol document and the v0.2 candidate extension.
+
+```text
+v0.1:
+  Defines Q-Point as a non-monetary value trace protocol.
+
+v0.2.0-candidate:
+  Adds Q-Point components, Catalyst C-vector, and scoring signal modes.
+```
+
+The v0.2 candidate does not replace the non-monetary nature of Q-Point.
+
+It extends the protocol by making the scoring structure more interpretable and more suitable for validation.
+
+---
+
 ## Q-Point Scoring Model
 
 The basic Q-Point score is modeled as:
@@ -149,7 +167,7 @@ All component scores are normalized to the range:
 
 ## Catalyst C-Vector
 
-In Q-Point v0.2 scoring, the Catalyst score is decomposed into four sub-components.
+In the v0.2 scoring model, the Catalyst score is decomposed into four sub-components.
 
 ```text
 C = 0.35S + 0.25Δ + 0.25K + 0.15V
@@ -268,8 +286,12 @@ examples/q-point-record.example.yaml
 ```text
 .
 ├── README.md
+├── CHANGELOG.md
+├── CITATION.cff
+├── LICENSE
 ├── docs
 │   ├── q-point-protocol-v0.1.md
+│   ├── q-point-protocol-v0.2.md
 │   └── q-point-scoring-model.md
 ├── examples
 │   └── q-point-record.example.yaml
@@ -286,14 +308,52 @@ examples/q-point-record.example.yaml
 
 ## Key Documents
 
-| File                                      | Purpose                                                                      |
-| ----------------------------------------- | ---------------------------------------------------------------------------- |
-| `docs/q-point-protocol-v0.1.md`           | Main protocol document defining Q-Point as a non-monetary value trace layer. |
-| `docs/q-point-scoring-model.md`           | Scoring model document defining Q-Point components and Catalyst C-vector.    |
-| `examples/q-point-record.example.yaml`    | Example Q-Point record using the C-vector model.                             |
-| `schemas/q-point-record.schema.json`      | JSON Schema for validating Q-Point records.                                  |
-| `scripts/validate_examples.py`            | Local validation script for examples and schemas.                            |
-| `.github/workflows/validate-examples.yml` | GitHub Actions workflow for automated validation.                            |
+| File                                      | Purpose                                                                                                                        |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `docs/q-point-protocol-v0.1.md`           | Initial protocol document defining Q-Point as a non-monetary value trace layer.                                                |
+| `docs/q-point-protocol-v0.2.md`           | Candidate protocol extension integrating Q-Point components, Catalyst C-vector, and scoring signal modes.                      |
+| `docs/q-point-scoring-model.md`           | Scoring model document defining Q-Point components, Catalyst C-vector formulas, signal modes, confidence, and review guidance. |
+| `examples/q-point-record.example.yaml`    | Example Q-Point record using the C-vector model.                                                                               |
+| `schemas/q-point-record.schema.json`      | JSON Schema for validating Q-Point records.                                                                                    |
+| `scripts/validate_examples.py`            | Local validation script for examples and schemas.                                                                              |
+| `.github/workflows/validate-examples.yml` | GitHub Actions workflow for automated validation.                                                                              |
+| `CHANGELOG.md`                            | Version history and candidate release notes.                                                                                   |
+| `CITATION.cff`                            | Citation metadata for academic and software citation.                                                                          |
+| `LICENSE`                                 | MIT License.                                                                                                                   |
+
+---
+
+## Recommended Reading Order
+
+For first-time readers:
+
+```text
+1. README.md
+2. docs/q-point-protocol-v0.1.md
+3. docs/q-point-protocol-v0.2.md
+4. docs/q-point-scoring-model.md
+5. examples/q-point-record.example.yaml
+6. schemas/q-point-record.schema.json
+```
+
+For implementers:
+
+```text
+1. schemas/q-point-record.schema.json
+2. examples/q-point-record.example.yaml
+3. scripts/validate_examples.py
+4. docs/q-point-scoring-model.md
+5. docs/q-point-protocol-v0.2.md
+```
+
+For reviewers:
+
+```text
+1. docs/q-point-protocol-v0.2.md
+2. docs/q-point-scoring-model.md
+3. CHANGELOG.md
+4. CITATION.cff
+```
 
 ---
 
@@ -527,13 +587,19 @@ Q-Point should reward contribution quality, not scoring manipulation.
 Current status:
 
 ```text
-Working Draft
+Candidate Working Draft
 ```
 
-Current protocol version:
+Current protocol baseline:
 
 ```text
 0.1
+```
+
+Current candidate extension:
+
+```text
+0.2.0-candidate
 ```
 
 Current scoring model:
@@ -566,6 +632,7 @@ Planned extensions may include:
 * privacy-preserving contribution tracking
 * cryptographic content hash verification
 * zero-knowledge contribution verification
+* Zenodo DOI after candidate tag stabilization
 
 ---
 
@@ -579,35 +646,37 @@ ai-protocol
 trace-protocol
 gratitude-os
 royalty-os
-creator-economy
 ai-attribution
-knowledge-systems
+creator-economy
+catalyst-vector
 ```
 
 ---
 
 ## License
 
-This repository is intended to be released under an open license.
+This repository is released under the MIT License.
 
-Recommended license:
+See:
 
 ```text
-MIT License
+LICENSE
 ```
-
-A `LICENSE` file should be added before stable release.
 
 ---
 
 ## Citation
 
-A `CITATION.cff` file should be added before stable release.
+Citation metadata is available in:
+
+```text
+CITATION.cff
+```
 
 Recommended citation title:
 
 ```text
-Q-Point Protocol v0.1
+Q-Point Protocol v0.2.0-candidate
 ```
 
 ---
@@ -619,6 +688,8 @@ Q-Point Protocol defines a non-monetary value trace layer for AI-mediated knowle
 It records the value of questions, ideas, and structural contributions before monetary distribution.
 
 Its purpose is not to create a currency, but to preserve the trace of meaningful contribution.
+
+The v0.2 candidate adds Q-Point components, Catalyst C-vector, and scoring signal modes.
 
 In the age of AI, the question itself becomes an epicenter.
 
