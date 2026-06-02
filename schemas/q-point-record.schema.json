@@ -1,0 +1,440 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://example.org/schemas/q-point-record.schema.json",
+"title": "Q-Point Record Schema",
+"description": "Schema for validating Q-Point Protocol v0.1 records.",
+"type": "object",
+"required": [
+"q_point_record"
+],
+"additionalProperties": false,
+"properties": {
+"q_point_record": {
+"type": "object",
+"required": [
+"record_id",
+"protocol_version",
+"created_at",
+"epicenter",
+"source",
+"q_point_vector",
+"q_point_summary",
+"status",
+"disclaimer"
+],
+"additionalProperties": false,
+"properties": {
+"record_id": {
+"type": "string",
+"pattern": "^qpr-[0-9]{4}-[0-9A-Za-z_-]+$",
+"description": "Unique identifier for the Q-Point record."
+},
+"protocol_version": {
+"type": "string",
+"const": "0.1"
+},
+"created_at": {
+"type": "string",
+"format": "date-time"
+},
+"updated_at": {
+"type": "string",
+"format": "date-time"
+},
+"epicenter": {
+"type": "object",
+"required": [
+"epicenter_id",
+"source_type",
+"origin_actor_type",
+"origin_platform"
+],
+"additionalProperties": false,
+"properties": {
+"epicenter_id": {
+"type": "string",
+"pattern": "^qsrc-[0-9]{4}-[0-9A-Za-z_-]+$"
+},
+"source_type": {
+"type": "string",
+"enum": [
+"question",
+"prompt",
+"idea",
+"concept",
+"document",
+"protocol",
+"conversation",
+"other"
+]
+},
+"source_hash": {
+"type": "string"
+},
+"origin_actor_type": {
+"type": "string",
+"enum": [
+"human",
+"ai",
+"group",
+"organization",
+"hybrid",
+"unknown"
+]
+},
+"origin_platform": {
+"type": "string"
+},
+"origin_language": {
+"type": "string",
+"minLength": 2
+},
+"created_at": {
+"type": "string",
+"format": "date-time"
+}
+}
+},
+"source": {
+"type": "object",
+"required": [
+"title",
+"summary"
+],
+"additionalProperties": false,
+"properties": {
+"title": {
+"type": "string",
+"minLength": 1
+},
+"summary": {
+"type": "string",
+"minLength": 1
+},
+"content_reference": {
+"type": "string"
+},
+"language": {
+"type": "string",
+"minLength": 2
+},
+"related_concepts": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+}
+}
+},
+"q_point_vector": {
+"type": "object",
+"required": [
+"originality",
+"depth",
+"catalyst",
+"structurality",
+"resonance",
+"reuse_potential"
+],
+"additionalProperties": false,
+"properties": {
+"originality": {
+"$ref": "#/$defs/score"
+},
+"depth": {
+"$ref": "#/$defs/score"
+},
+"catalyst": {
+"$ref": "#/$defs/score"
+},
+"structurality": {
+"$ref": "#/$defs/score"
+},
+"resonance": {
+"$ref": "#/$defs/score"
+},
+"reuse_potential": {
+"$ref": "#/$defs/score"
+},
+"clarity": {
+"$ref": "#/$defs/score"
+},
+"traceability": {
+"$ref": "#/$defs/score"
+},
+"ethical_alignment": {
+"$ref": "#/$defs/score"
+},
+"cross_ai_relevance": {
+"$ref": "#/$defs/score"
+},
+"long_term_value": {
+"$ref": "#/$defs/score"
+}
+}
+},
+"q_point_summary": {
+"type": "object",
+"required": [
+"total_score",
+"confidence",
+"scoring_method",
+"evaluation_status"
+],
+"additionalProperties": false,
+"properties": {
+"total_score": {
+"$ref": "#/$defs/score"
+},
+"confidence": {
+"$ref": "#/$defs/score"
+},
+"scoring_method": {
+"type": "string",
+"enum": [
+"ai_assisted",
+"human_review",
+"hybrid_ai_assisted_review",
+"manual",
+"automated",
+"other"
+]
+},
+"scoring_model_version": {
+"type": "string"
+},
+"evaluation_status": {
+"type": "string",
+"enum": [
+"draft",
+"reviewed",
+"disputed",
+"retired"
+]
+}
+}
+},
+"trace_links": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"trace_id": {
+"type": "string"
+},
+"related_trace_ids": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"related_gratitude_records": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"related_royalty_records": {
+"type": "array",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+}
+}
+},
+"cross_ai": {
+"type": "object",
+"required": [
+"aggregation_enabled"
+],
+"additionalProperties": false,
+"properties": {
+"aggregation_enabled": {
+"type": "boolean"
+},
+"aggregation_method": {
+"type": "string"
+},
+"participating_systems": {
+"type": "array",
+"items": {
+"type": "object",
+"required": [
+"system_name",
+"local_q_point_score",
+"confidence"
+],
+"additionalProperties": false,
+"properties": {
+"system_name": {
+"type": "string"
+},
+"local_q_point_score": {
+"$ref": "#/$defs/score"
+},
+"confidence": {
+"$ref": "#/$defs/score"
+}
+}
+}
+},
+"aggregate_score": {
+"$ref": "#/$defs/score"
+}
+}
+},
+"status": {
+"type": "object",
+"required": [
+"monetary_value",
+"legal_claim",
+"royalty_ready",
+"review_required",
+"reviewed",
+"disputed"
+],
+"additionalProperties": false,
+"properties": {
+"monetary_value": {
+"type": "boolean"
+},
+"legal_claim": {
+"type": "boolean"
+},
+"royalty_ready": {
+"type": "boolean"
+},
+"review_required": {
+"type": "boolean"
+},
+"reviewed": {
+"type": "boolean"
+},
+"disputed": {
+"type": "boolean"
+}
+}
+},
+"governance": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"reviewer_type": {
+"type": "string",
+"enum": [
+"none",
+"ai",
+"human",
+"hybrid",
+"organization"
+]
+},
+"reviewer_id": {
+"type": [
+"string",
+"null"
+]
+},
+"dispute_status": {
+"type": "string",
+"enum": [
+"none",
+"open",
+"under_review",
+"resolved",
+"rejected"
+]
+},
+"version_status": {
+"type": "string",
+"enum": [
+"working_draft",
+"candidate",
+"stable",
+"deprecated"
+]
+}
+}
+},
+"privacy": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"personal_data_minimized": {
+"type": "boolean"
+},
+"public_record": {
+"type": "boolean"
+},
+"identity_disclosure": {
+"type": "string",
+"enum": [
+"public",
+"pseudonymous",
+"pseudonymous_or_private",
+"private",
+"anonymous"
+]
+},
+"deletion_request_supported": {
+"type": "boolean"
+}
+}
+},
+"anti_gaming": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"duplicate_check_required": {
+"type": "boolean"
+},
+"novelty_check_required": {
+"type": "boolean"
+},
+"high_score_human_review_required": {
+"type": "boolean"
+},
+"delayed_influence_scoring": {
+"type": "boolean"
+}
+}
+},
+"disclaimer": {
+"type": "object",
+"required": [
+"text"
+],
+"additionalProperties": false,
+"properties": {
+"text": {
+"type": "string",
+"minLength": 1
+}
+}
+},
+"notes": {
+"type": "object",
+"additionalProperties": false,
+"properties": {
+"evaluator_note": {
+"type": "string"
+},
+"implementation_note": {
+"type": "string"
+}
+}
+}
+}
+}
+},
+"$defs": {
+"score": {
+"type": "number",
+"minimum": 0,
+"maximum": 1
+}
+}
+}
