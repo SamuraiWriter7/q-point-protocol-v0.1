@@ -1,0 +1,102 @@
+q_point_record:
+record_id: "qpr-2026-000001"
+protocol_version: "0.1"
+created_at: "2026-06-02T09:10:00+09:00"
+updated_at: "2026-06-02T09:30:00+09:00"
+
+epicenter:
+epicenter_id: "qsrc-2026-000001"
+source_type: "question"
+source_hash: "sha256-example-placeholder"
+origin_actor_type: "human"
+origin_platform: "chat_interface"
+origin_language: "en"
+created_at: "2026-06-02T09:00:00+09:00"
+
+source:
+title: "Can AI record the value of questions before monetary royalty?"
+summary: "A question proposing Q-Point as a non-monetary bridge between intellectual contribution and future royalty systems."
+content_reference: "internal-reference-placeholder"
+related_concepts:
+- "Trace Protocol"
+- "Gratitude OS"
+- "Royalty OS"
+- "Epicenter ID"
+- "AI-mediated knowledge systems"
+
+q_point_vector:
+originality: 0.86
+depth: 0.91
+catalyst: 0.84
+structurality: 0.88
+resonance: 0.76
+reuse_potential: 0.72
+clarity: 0.81
+traceability: 0.74
+ethical_alignment: 0.89
+cross_ai_relevance: 0.77
+long_term_value: 0.82
+
+q_point_summary:
+total_score: 0.83
+confidence: 0.78
+scoring_method: "hybrid_ai_assisted_review"
+scoring_model_version: "qpoint-evaluator-0.1"
+evaluation_status: "draft"
+
+trace_links:
+trace_id: "trace-2026-000001"
+related_trace_ids:
+- "trace-2026-000002"
+- "trace-2026-000003"
+related_gratitude_records:
+- "gratitude-2026-000001"
+related_royalty_records: []
+
+cross_ai:
+aggregation_enabled: true
+aggregation_method: "weighted_average_with_review"
+participating_systems:
+- system_name: "AI-System-A"
+local_q_point_score: 0.82
+confidence: 0.76
+- system_name: "AI-System-B"
+local_q_point_score: 0.79
+confidence: 0.72
+- system_name: "AI-System-C"
+local_q_point_score: 0.87
+confidence: 0.81
+aggregate_score: 0.83
+
+status:
+monetary_value: false
+legal_claim: false
+royalty_ready: false
+review_required: true
+reviewed: false
+disputed: false
+
+governance:
+reviewer_type: "none"
+reviewer_id: null
+dispute_status: "none"
+version_status: "working_draft"
+
+privacy:
+personal_data_minimized: true
+public_record: false
+identity_disclosure: "pseudonymous_or_private"
+deletion_request_supported: true
+
+anti_gaming:
+duplicate_check_required: true
+novelty_check_required: true
+high_score_human_review_required: true
+delayed_influence_scoring: true
+
+disclaimer:
+text: "This Q-Point record is a non-monetary value trace. It does not represent currency, securities, legal ownership, automatic royalty rights, debt, or a claim to payment. It may be used as reference data for future review, attribution, gratitude, licensing, or allocation systems."
+
+notes:
+evaluator_note: "The contribution has strong structural potential and may serve as a bridge between Trace Protocol, Gratitude OS, and Royalty OS."
+implementation_note: "This example is for protocol validation and documentation purposes only."
