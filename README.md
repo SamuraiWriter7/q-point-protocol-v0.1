@@ -104,15 +104,16 @@ This contribution is identified through an **Epicenter ID**.
 
 ## Key Terms
 
-| Term             | Meaning                                                                               |
-| ---------------- | ------------------------------------------------------------------------------------- |
-| `Q-Point`        | A non-monetary value trace score for question-based intellectual contribution.        |
-| `Epicenter ID`   | A unique identifier for the originating question, idea, or conceptual contribution.   |
-| `Trace Protocol` | The evidence layer that records where a contribution came from and how it moved.      |
-| `Gratitude OS`   | A non-monetary appreciation layer that may use Q-Point records as reference data.     |
-| `Royalty OS`     | A future allocation layer that may use reviewed Q-Point records as weighting signals. |
-| `C-vector`       | A Catalyst vector that decomposes how a question moved AI-mediated reasoning.         |
-| `Depth Value`    | A value axis that emphasizes conceptual depth rather than popularity.                 |
+| Term                | Meaning                                                                                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `Q-Point`           | A non-monetary value trace score for question-based intellectual contribution.                                                |
+| `Epicenter ID`      | A unique identifier for the originating question, idea, or conceptual contribution.                                           |
+| `Trace Protocol`    | The evidence layer that records where a contribution came from and how it moved.                                              |
+| `Gratitude OS`      | A non-monetary appreciation layer that may use Q-Point records as reference data.                                             |
+| `Royalty OS`        | A future allocation layer that may use reviewed Q-Point records as weighting signals.                                         |
+| `C-vector`          | A Catalyst vector that decomposes how a question moved AI-mediated reasoning.                                                 |
+| `Depth Value`       | A value axis that emphasizes conceptual depth rather than popularity.                                                         |
+| `Value Circulation` | A conceptual loop connecting AI usage-side value inflow, Q-Point records, review, gratitude, and future allocation reference. |
 
 ---
 
@@ -125,12 +126,13 @@ v0.1:
   Defines Q-Point as a non-monetary value trace protocol.
 
 v0.2.0-candidate:
-  Adds Q-Point components, Catalyst C-vector, and scoring signal modes.
+  Adds Q-Point components, Catalyst C-vector, scoring signal modes,
+  AI Credit bridge logic, and value circulation documentation.
 ```
 
 The v0.2 candidate does not replace the non-monetary nature of Q-Point.
 
-It extends the protocol by making the scoring structure more interpretable and more suitable for validation.
+It extends the protocol by making the scoring structure more interpretable, more reviewable, and more suitable for future value circulation models.
 
 ---
 
@@ -216,6 +218,50 @@ This allows Q-Point to be implemented even when private model internals are not 
 
 ---
 
+## Value Circulation Model
+
+The broader value circulation model connects AI usage-side value inflow with reviewed Q-Point records and future Royalty OS allocation references.
+
+The high-level flow is:
+
+```text
+AI usage-side value inflow
+  ↓
+Q-Point contribution measurement
+  ↓
+Review and governance
+  ↓
+Meaning return / Gratitude OS
+  ↓
+Royalty OS allocation reference
+```
+
+The value circulation bridge is documented in:
+
+```text
+docs/value-circulation-diagram.md
+```
+
+The bridge formula is:
+
+```text
+R_i = P × B × (Q_i* / ΣQ*)
+```
+
+Where:
+
+```text
+Q_i* = Q_i × T_i × A_i × G_i
+```
+
+This formula defines allocation reference logic only.
+
+It does not automatically convert AI credits into money.
+
+It does not create legal claims, debts, securities, automatic royalty rights, or guaranteed future income.
+
+---
+
 ## Example Record
 
 A Q-Point record contains:
@@ -290,9 +336,11 @@ examples/q-point-record.example.yaml
 ├── CITATION.cff
 ├── LICENSE
 ├── docs
+│   ├── ai-credit-to-royalty-os-bridge.md
 │   ├── q-point-protocol-v0.1.md
 │   ├── q-point-protocol-v0.2.md
-│   └── q-point-scoring-model.md
+│   ├── q-point-scoring-model.md
+│   └── value-circulation-diagram.md
 ├── examples
 │   └── q-point-record.example.yaml
 ├── schemas
@@ -308,18 +356,20 @@ examples/q-point-record.example.yaml
 
 ## Key Documents
 
-| File                                      | Purpose                                                                                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `docs/q-point-protocol-v0.1.md`           | Initial protocol document defining Q-Point as a non-monetary value trace layer.                                                |
-| `docs/q-point-protocol-v0.2.md`           | Candidate protocol extension integrating Q-Point components, Catalyst C-vector, and scoring signal modes.                      |
-| `docs/q-point-scoring-model.md`           | Scoring model document defining Q-Point components, Catalyst C-vector formulas, signal modes, confidence, and review guidance. |
-| `examples/q-point-record.example.yaml`    | Example Q-Point record using the C-vector model.                                                                               |
-| `schemas/q-point-record.schema.json`      | JSON Schema for validating Q-Point records.                                                                                    |
-| `scripts/validate_examples.py`            | Local validation script for examples and schemas.                                                                              |
-| `.github/workflows/validate-examples.yml` | GitHub Actions workflow for automated validation.                                                                              |
-| `CHANGELOG.md`                            | Version history and candidate release notes.                                                                                   |
-| `CITATION.cff`                            | Citation metadata for academic and software citation.                                                                          |
-| `LICENSE`                                 | MIT License.                                                                                                                   |
+| File                                      | Purpose                                                                                                                                         |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `docs/q-point-protocol-v0.1.md`           | Initial protocol document defining Q-Point as a non-monetary value trace layer.                                                                 |
+| `docs/q-point-protocol-v0.2.md`           | Candidate protocol extension integrating Q-Point components, Catalyst C-vector, and scoring signal modes.                                       |
+| `docs/q-point-scoring-model.md`           | Scoring model document defining Q-Point components, Catalyst C-vector formulas, signal modes, confidence, and review guidance.                  |
+| `docs/ai-credit-to-royalty-os-bridge.md`  | Bridge document describing how usage-side AI value inflows may connect to reviewed Q-Point records and future Royalty OS allocation references. |
+| `docs/value-circulation-diagram.md`       | High-level value circulation diagram connecting AI Credit Layer, Q-Point, Review and Governance, Gratitude OS, and Royalty OS reference logic.  |
+| `examples/q-point-record.example.yaml`    | Example Q-Point record using the C-vector model.                                                                                                |
+| `schemas/q-point-record.schema.json`      | JSON Schema for validating Q-Point records.                                                                                                     |
+| `scripts/validate_examples.py`            | Local validation script for examples and schemas.                                                                                               |
+| `.github/workflows/validate-examples.yml` | GitHub Actions workflow for automated validation.                                                                                               |
+| `CHANGELOG.md`                            | Version history and candidate release notes.                                                                                                    |
+| `CITATION.cff`                            | Citation metadata for academic and software citation.                                                                                           |
+| `LICENSE`                                 | MIT License.                                                                                                                                    |
 
 ---
 
@@ -332,8 +382,10 @@ For first-time readers:
 2. docs/q-point-protocol-v0.1.md
 3. docs/q-point-protocol-v0.2.md
 4. docs/q-point-scoring-model.md
-5. examples/q-point-record.example.yaml
-6. schemas/q-point-record.schema.json
+5. docs/ai-credit-to-royalty-os-bridge.md
+6. docs/value-circulation-diagram.md
+7. examples/q-point-record.example.yaml
+8. schemas/q-point-record.schema.json
 ```
 
 For implementers:
@@ -344,6 +396,8 @@ For implementers:
 3. scripts/validate_examples.py
 4. docs/q-point-scoring-model.md
 5. docs/q-point-protocol-v0.2.md
+6. docs/ai-credit-to-royalty-os-bridge.md
+7. docs/value-circulation-diagram.md
 ```
 
 For reviewers:
@@ -351,8 +405,10 @@ For reviewers:
 ```text
 1. docs/q-point-protocol-v0.2.md
 2. docs/q-point-scoring-model.md
-3. CHANGELOG.md
-4. CITATION.cff
+3. docs/ai-credit-to-royalty-os-bridge.md
+4. docs/value-circulation-diagram.md
+5. CHANGELOG.md
+6. CITATION.cff
 ```
 
 ---
@@ -487,6 +543,36 @@ The conversion from Q-Point to royalty must not be automatic unless a clear lega
 
 ---
 
+## Relationship to AI Credit Bridge
+
+The AI Credit to Royalty OS Bridge describes how usage-side AI value inflows may be connected to reviewed Q-Point records.
+
+```text
+AI Credit Layer
+  ↓
+Q-Point Value Measurement Layer
+  ↓
+Royalty OS Allocation Reference Layer
+```
+
+The bridge document is:
+
+```text
+docs/ai-credit-to-royalty-os-bridge.md
+```
+
+The diagram document is:
+
+```text
+docs/value-circulation-diagram.md
+```
+
+Both documents are conceptual and non-executing.
+
+They define possible reference logic for future reviewed allocation, not automatic payment.
+
+---
+
 ## Relationship to Licensing Standards
 
 Q-Point may complement licensing standards and machine-readable content usage frameworks.
@@ -608,6 +694,18 @@ Current scoring model:
 q-point-scoring-model-v0.2
 ```
 
+Current bridge model:
+
+```text
+ai-credit-to-royalty-os-bridge-v0.1.0
+```
+
+Current value circulation diagram:
+
+```text
+value-circulation-diagram-v0.1.0
+```
+
 Current validation status:
 
 ```text
@@ -624,11 +722,15 @@ Planned extensions may include:
 * pass / fail validation test vectors
 * Epicenter ID specification
 * Q-Point dashboard schema
+* AI Credit to Royalty OS bridge schema
+* AI Credit to Royalty OS bridge example records
 * Gratitude OS bridge document
 * Royalty OS bridge document
 * licensing metadata bridge
 * cross-AI aggregation schema
 * dispute resolution workflow
+* value circulation example records
+* value circulation dashboard schema
 * privacy-preserving contribution tracking
 * cryptographic content hash verification
 * zero-knowledge contribution verification
@@ -689,7 +791,7 @@ It records the value of questions, ideas, and structural contributions before mo
 
 Its purpose is not to create a currency, but to preserve the trace of meaningful contribution.
 
-The v0.2 candidate adds Q-Point components, Catalyst C-vector, and scoring signal modes.
+The v0.2 candidate adds Q-Point components, Catalyst C-vector, scoring signal modes, AI Credit bridge logic, and value circulation documentation.
 
 In the age of AI, the question itself becomes an epicenter.
 
