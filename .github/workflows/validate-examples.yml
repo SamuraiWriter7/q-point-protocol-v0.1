@@ -1,46 +1,43 @@
 name: Validate Q-Point Examples
 
 on:
-push:
-paths:
-- ".github/workflows/validate-examples.yml"
-- "schemas/**"
-- "examples/**"
-- "scripts/validate_examples.py"
-pull_request:
-paths:
-- ".github/workflows/validate-examples.yml"
-- "schemas/**"
-- "examples/**"
-- "scripts/validate_examples.py"
-workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/validate-examples.yml"
+      - "schemas/**"
+      - "examples/**"
+      - "scripts/validate_examples.py"
+  pull_request:
+    paths:
+      - ".github/workflows/validate-examples.yml"
+      - "schemas/**"
+      - "examples/**"
+      - "scripts/validate_examples.py"
+  workflow_dispatch:
 
 jobs:
-validate:
-runs-on: ubuntu-latest
+  validate:
+    runs-on: ubuntu-latest
 
-```
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  - name: Set up Python
-    uses: actions/setup-python@v5
-    with:
-      python-version: "3.12"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-  - name: Install validation dependencies
-    run: |
-      python -m pip install --upgrade pip
-      python -m pip install PyYAML jsonschema
+      - name: Install validation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install PyYAML jsonschema
 
-  - name: Debug file tree
-    run: |
-      pwd
-      find . -maxdepth 3 -type f | sort
+      - name: Debug file tree
+        run: |
+          pwd
+          find . -maxdepth 3 -type f | sort
 
-  - name: Validate Q-Point examples
-    run: |
-      python scripts/validate_examples.py
-```
-
+      - name: Validate Q-Point examples
+        run: |
+          python scripts/validate_examples.py
