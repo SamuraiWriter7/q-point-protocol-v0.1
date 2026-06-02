@@ -32,17 +32,36 @@ This project follows a lightweight versioning approach during the Working Draft 
   * `proxy_signal_mode`
   * `hybrid_signal_mode`
 * Added C-vector related concepts to the example record.
+* Added the v0.2 candidate protocol document:
+
+  * `docs/q-point-protocol-v0.2.md`
+* Added the formal scoring model document:
+
+  * `docs/q-point-scoring-model.md`
+* Added the AI Credit to Royalty OS bridge document:
+
+  * `docs/ai-credit-to-royalty-os-bridge.md`
 * Added README documentation for:
 
   * Q-Point overview
+  * v0.2 candidate layer
   * Catalyst C-vector
   * Internal and Proxy Signal Modes
   * Validation workflow
   * Relationship to Trace Protocol, Gratitude OS, Royalty OS, and licensing standards
-* Added GitHub Actions validation workflow for Q-Point examples.
+  * AI Credit to Royalty OS bridge
+* Added GitHub Actions validation workflow for Q-Point examples:
+
+  * `.github/workflows/validate-examples.yml`
 * Added local validation script:
 
   * `scripts/validate_examples.py`
+* Added citation metadata:
+
+  * `CITATION.cff`
+* Added MIT License:
+
+  * `LICENSE`
 
 ### Updated
 
@@ -52,9 +71,25 @@ This project follows a lightweight versioning approach during the Working Draft 
   * `q_point_components`
   * `catalyst_vector`
   * `scoring_signal_mode`
-* Updated README repository structure to reflect the current files.
+* Updated `README.md` to reflect the current repository structure.
+* Updated `README.md` Key Documents section to include:
+
+  * `docs/q-point-protocol-v0.2.md`
+  * `docs/q-point-scoring-model.md`
+  * `docs/ai-credit-to-royalty-os-bridge.md`
+* Updated `README.md` Recommended Reading Order for:
+
+  * first-time readers
+  * implementers
+  * reviewers
+* Updated `README.md` Future Work section to include:
+
+  * AI Credit to Royalty OS bridge schema
+  * AI Credit to Royalty OS bridge example records
+  * value circulation diagram
 * Updated validation instructions for local and GitHub Actions usage.
 * Updated the Q-Point model from a simple value trace record toward a C-vector compatible scoring structure.
+* Updated project metadata toward `v0.2.0-candidate`.
 
 ### Validation
 
@@ -63,6 +98,45 @@ This project follows a lightweight versioning approach during the Working Draft 
   * `examples/q-point-record.example.yaml`
   * `schemas/q-point-record.schema.json`
   * `scripts/validate_examples.py`
+  * `.github/workflows/validate-examples.yml`
+
+### Bridge Model
+
+This candidate release introduces the first bridge document connecting usage-side AI value inflows to reviewed Q-Point records and future Royalty OS allocation references.
+
+The bridge is defined in:
+
+```text
+docs/ai-credit-to-royalty-os-bridge.md
+```
+
+The bridge model introduces the following conceptual flow:
+
+```text
+AI Credit Layer
+  ↓
+Q-Point Value Measurement Layer
+  ↓
+Royalty OS Allocation Reference Layer
+```
+
+The recommended reference formula is:
+
+```text
+R_i = P × B × (Q_i* / ΣQ*)
+```
+
+Where:
+
+```text
+Q_i* = Q_i × T_i × A_i × G_i
+```
+
+This bridge does not automatically convert AI credits into money.
+
+It does not create legal claims, debts, securities, automatic royalty rights, or guaranteed future income.
+
+It defines a possible reference model for future reviewed allocation.
 
 ### Notes
 
@@ -162,7 +236,6 @@ Distribute later.
 
 ### Planned
 
-* Add `docs/q-point-scoring-model.md`.
 * Add pass / fail validation examples.
 * Add Epicenter ID specification.
 * Add Cross-AI Aggregation schema.
@@ -170,11 +243,14 @@ Distribute later.
 * Add Royalty OS bridge document.
 * Add licensing metadata bridge document.
 * Add dashboard metadata schema.
+* Add AI Credit to Royalty OS bridge schema.
+* Add AI Credit to Royalty OS bridge example records.
+* Add value circulation diagram.
 * Add dispute resolution workflow.
 * Add privacy-preserving contribution tracking notes.
 * Add cryptographic content hash verification notes.
-* Add `LICENSE`.
-* Add `CITATION.cff`.
+* Add zero-knowledge contribution verification notes.
+* Add Zenodo DOI after candidate tag stabilization.
 
 ---
 
@@ -205,3 +281,8 @@ Q-Point records do not represent:
 * guaranteed future income
 
 Q-Point records may be used as reference data for future review, attribution, gratitude, licensing, or allocation systems.
+
+The AI Credit to Royalty OS bridge also remains non-executing and non-monetary at the protocol layer.
+
+It defines allocation reference logic only, not automatic payment.
+
