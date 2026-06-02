@@ -1,129 +1,122 @@
 q_point_record:
-record_id: "qpr-2026-000001"
-protocol_version: "0.1"
-created_at: "2026-06-02T09:10:00+09:00"
-updated_at: "2026-06-02T09:30:00+09:00"
+  record_id: "qpr-2026-abc123"
+  protocol_version: "0.1"
+  created_at: "2026-06-02T11:00:00Z"
+  updated_at: "2026-06-02T11:00:00Z"
 
-epicenter:
-epicenter_id: "qsrc-2026-000001"
-source_type: "question"
-source_hash: "sha256-example-placeholder"
-origin_actor_type: "human"
-origin_platform: "chat_interface"
-origin_language: "en"
-created_at: "2026-06-02T09:00:00+09:00"
+  epicenter:
+    epicenter_id: "qsrc-2026-xyz789"
+    source_type: "question"
+    source_hash: "sha256-xxxx"
+    origin_actor_type: "human"
+    origin_platform: "chat"
+    origin_language: "ja"
+    created_at: "2026-06-02T11:00:00Z"
 
-source:
-title: "Can AI record the value of questions before monetary royalty?"
-summary: "A question proposing Q-Point as a non-monetary bridge between intellectual contribution and future royalty systems."
-content_reference: "internal-reference-placeholder"
-related_concepts:
-- "Trace Protocol"
-- "Gratitude OS"
-- "Royalty OS"
-- "Epicenter ID"
-- "AI-mediated knowledge systems"
-- "C-vector"
-- "Catalyst Vector"
+  source:
+    title: "Q-Point Protocol Example"
+    summary: "Example record demonstrating Q-Point v0.1 structure."
+    content_reference: "https://example.org/content/123"
+    language: "ja"
+    related_concepts:
+      - "q-point"
+      - "catalyst-vector"
 
-q_point_vector:
-originality: 0.86
-depth: 0.90
-catalyst: 0.81
-structurality: 0.88
-resonance: 0.76
-reuse_potential: 0.72
-clarity: 0.81
-traceability: 0.74
-ethical_alignment: 0.89
-cross_ai_relevance: 0.77
-long_term_value: 0.82
+  q_point_vector:
+    originality: 0.82
+    depth: 0.74
+    catalyst: 0.91
+    structurality: 0.65
+    resonance: 0.58
+    reuse_potential: 0.72
+    clarity: 0.80
+    traceability: 0.77
+    ethical_alignment: 0.95
+    cross_ai_relevance: 0.66
+    long_term_value: 0.88
 
-q_point_components:
-originality: 0.86
-depth: 0.90
-catalyst: 0.81
-trace_persistence: 0.74
-component_weights:
-originality: 0.30
-depth: 0.25
-catalyst: 0.30
-trace_persistence: 0.15
+  q_point_components:
+    originality: 0.82
+    depth: 0.74
+    catalyst: 0.91
+    trace_persistence: 0.70
+    component_weights:
+      originality: 0.30
+      depth: 0.25
+      catalyst: 0.30
+      trace_persistence: 0.15
 
-catalyst_vector:
-self_question_trigger: 0.88
-confidence_shift: 0.76
-internal_conflict_detection: 0.82
-viewpoint_shift: 0.72
-catalyst_score: 0.81
-catalyst_weights:
-self_question_trigger: 0.35
-confidence_shift: 0.25
-internal_conflict_detection: 0.25
-viewpoint_shift: 0.15
+  catalyst_vector:
+    self_question_trigger: 0.92
+    confidence_shift: 0.85
+    internal_conflict_detection: 0.78
+    viewpoint_shift: 0.66
+    catalyst_score: 0.91
+    catalyst_weights:
+      self_question_trigger: 0.35
+      confidence_shift: 0.25
+      internal_conflict_detection: 0.25
+      viewpoint_shift: 0.15
 
-q_point_summary:
-total_score: 0.84
-confidence: 0.79
-scoring_method: "hybrid_ai_assisted_review"
-scoring_signal_mode: "proxy_signal_mode"
-scoring_model_version: "q-point-scoring-model-v0.2"
-evaluation_status: "draft"
+  q_point_summary:
+    total_score: 0.87
+    confidence: 0.93
+    scoring_method: "ai_assisted"
+    scoring_signal_mode: "internal_signal_mode"
+    scoring_model_version: "qpoint-v0.2"
+    evaluation_status: "reviewed"
 
-trace_links:
-trace_id: "trace-2026-000001"
-related_trace_ids:
-- "trace-2026-000002"
-- "trace-2026-000003"
-related_gratitude_records:
-- "gratitude-2026-000001"
-related_royalty_records: []
+  trace_links:
+    trace_id: "trace-001"
+    related_trace_ids:
+      - "trace-002"
+      - "trace-003"
+    related_gratitude_records: []
+    related_royalty_records: []
 
-cross_ai:
-aggregation_enabled: true
-aggregation_method: "weighted_average_with_review"
-participating_systems:
-- system_name: "AI-System-A"
-local_q_point_score: 0.82
-confidence: 0.76
-- system_name: "AI-System-B"
-local_q_point_score: 0.79
-confidence: 0.72
-- system_name: "AI-System-C"
-local_q_point_score: 0.87
-confidence: 0.81
-aggregate_score: 0.83
+  cross_ai:
+    aggregation_enabled: true
+    aggregation_method: "weighted"
+    participating_systems:
+      - system_name: "gpt"
+        local_q_point_score: 0.87
+        confidence: 0.93
+      - system_name: "claude"
+        local_q_point_score: 0.82
+        confidence: 0.90
+    aggregate_score: 0.85
 
-status:
-monetary_value: false
-legal_claim: false
-royalty_ready: false
-review_required: true
-reviewed: false
-disputed: false
+  status:
+    monetary_value: false
+    legal_claim: false
+    royalty_ready: false
+    review_required: false
+    reviewed: true
+    disputed: false
 
-governance:
-reviewer_type: "none"
-reviewer_id: null
-dispute_status: "none"
-version_status: "working_draft"
+  governance:
+    reviewer_type: "ai"
+    reviewer_id: "gpt-system"
+    dispute_status: "none"
+    version_status: "working_draft"
 
-privacy:
-personal_data_minimized: true
-public_record: false
-identity_disclosure: "pseudonymous_or_private"
-deletion_request_supported: true
+  privacy:
+    personal_data_minimized: true
+    public_record: false
+    identity_disclosure: "pseudonymous"
+    deletion_request_supported: true
 
-anti_gaming:
-duplicate_check_required: true
-novelty_check_required: true
-high_score_human_review_required: true
-delayed_influence_scoring: true
+  anti_gaming:
+    duplicate_check_required: true
+    novelty_check_required: true
+    high_score_human_review_required: false
+    delayed_influence_scoring: true
 
-disclaimer:
-text: "This Q-Point record is a non-monetary value trace. It does not represent currency, securities, legal ownership, automatic royalty rights, debt, or a claim to payment. It may be used as reference data for future review, attribution, gratitude, licensing, or allocation systems."
+  disclaimer:
+    text: "This Q-Point record is a non-monetary evaluation of cognitive contribution."
 
-notes:
-evaluator_note: "The contribution has strong structural potential and may serve as a bridge between Trace Protocol, Gratitude OS, and Royalty OS."
-implementation_note: "This example is for protocol validation and documentation purposes only."
+  notes:
+    evaluator_note: "Example generated for schema validation."
+    implementation_note: "Values are placeholders."
+
 
