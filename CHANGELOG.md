@@ -41,12 +41,16 @@ This project follows a lightweight versioning approach during the Working Draft 
 * Added the AI Credit to Royalty OS bridge document:
 
   * `docs/ai-credit-to-royalty-os-bridge.md`
+* Added the value circulation diagram document:
+
+  * `docs/value-circulation-diagram.md`
 * Added README documentation for:
 
   * Q-Point overview
   * v0.2 candidate layer
   * Catalyst C-vector
   * Internal and Proxy Signal Modes
+  * Value Circulation Model
   * Validation workflow
   * Relationship to Trace Protocol, Gratitude OS, Royalty OS, and licensing standards
   * AI Credit to Royalty OS bridge
@@ -77,6 +81,7 @@ This project follows a lightweight versioning approach during the Working Draft 
   * `docs/q-point-protocol-v0.2.md`
   * `docs/q-point-scoring-model.md`
   * `docs/ai-credit-to-royalty-os-bridge.md`
+  * `docs/value-circulation-diagram.md`
 * Updated `README.md` Recommended Reading Order for:
 
   * first-time readers
@@ -86,7 +91,8 @@ This project follows a lightweight versioning approach during the Working Draft 
 
   * AI Credit to Royalty OS bridge schema
   * AI Credit to Royalty OS bridge example records
-  * value circulation diagram
+  * value circulation example records
+  * value circulation dashboard schema
 * Updated validation instructions for local and GitHub Actions usage.
 * Updated the Q-Point model from a simple value trace record toward a C-vector compatible scoring structure.
 * Updated project metadata toward `v0.2.0-candidate`.
@@ -137,6 +143,38 @@ This bridge does not automatically convert AI credits into money.
 It does not create legal claims, debts, securities, automatic royalty rights, or guaranteed future income.
 
 It defines a possible reference model for future reviewed allocation.
+
+### Value Circulation Diagram
+
+This candidate release adds a value circulation diagram document that visualizes the broader Q-Point ecosystem.
+
+The diagram is defined in:
+
+```text
+docs/value-circulation-diagram.md
+```
+
+The value circulation model connects:
+
+```text
+AI usage-side value inflow
+  ↓
+Q-Point contribution measurement
+  ↓
+Review and governance
+  ↓
+Meaning return / Gratitude OS
+  ↓
+Royalty OS allocation reference
+```
+
+The diagram clarifies how Q-Point Protocol, AI Credit Bridge, Gratitude OS, and Royalty OS may connect into a non-monetary, review-first value circulation architecture.
+
+This diagram is conceptual.
+
+It does not define an automatic payment system.
+
+It does not create legal claims, debts, securities, automatic royalty rights, or guaranteed future income.
 
 ### Notes
 
@@ -245,7 +283,8 @@ Distribute later.
 * Add dashboard metadata schema.
 * Add AI Credit to Royalty OS bridge schema.
 * Add AI Credit to Royalty OS bridge example records.
-* Add value circulation diagram.
+* Add value circulation example records.
+* Add value circulation dashboard schema.
 * Add dispute resolution workflow.
 * Add privacy-preserving contribution tracking notes.
 * Add cryptographic content hash verification notes.
@@ -284,5 +323,8 @@ Q-Point records may be used as reference data for future review, attribution, gr
 
 The AI Credit to Royalty OS bridge also remains non-executing and non-monetary at the protocol layer.
 
-It defines allocation reference logic only, not automatic payment.
+The value circulation diagram is conceptual and non-executing.
+
+It defines architecture and reference logic only, not automatic payment.
+
 
