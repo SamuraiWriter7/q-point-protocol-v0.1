@@ -2,7 +2,7 @@
 "$schema": "https://json-schema.org/draft/2020-12/schema",
 "$id": "https://example.org/schemas/q-point-record.schema.json",
 "title": "Q-Point Record Schema",
-"description": "Schema for validating Q-Point Protocol v0.1 records.",
+"description": "Schema for validating Q-Point Protocol records with C-vector scoring model support.",
 "type": "object",
 "required": [
 "q_point_record"
@@ -18,6 +18,8 @@
 "epicenter",
 "source",
 "q_point_vector",
+"q_point_components",
+"catalyst_vector",
 "q_point_summary",
 "status",
 "disclaimer"
@@ -174,12 +176,113 @@
 }
 }
 },
+"q_point_components": {
+"type": "object",
+"required": [
+"originality",
+"depth",
+"catalyst",
+"trace_persistence"
+],
+"additionalProperties": false,
+"properties": {
+"originality": {
+"$ref": "#/$defs/score"
+},
+"depth": {
+"$ref": "#/$defs/score"
+},
+"catalyst": {
+"$ref": "#/$defs/score"
+},
+"trace_persistence": {
+"$ref": "#/$defs/score"
+},
+"component_weights": {
+"type": "object",
+"required": [
+"originality",
+"depth",
+"catalyst",
+"trace_persistence"
+],
+"additionalProperties": false,
+"properties": {
+"originality": {
+"$ref": "#/$defs/score"
+},
+"depth": {
+"$ref": "#/$defs/score"
+},
+"catalyst": {
+"$ref": "#/$defs/score"
+},
+"trace_persistence": {
+"$ref": "#/$defs/score"
+}
+}
+}
+}
+},
+"catalyst_vector": {
+"type": "object",
+"required": [
+"self_question_trigger",
+"confidence_shift",
+"internal_conflict_detection",
+"viewpoint_shift",
+"catalyst_score"
+],
+"additionalProperties": false,
+"properties": {
+"self_question_trigger": {
+"$ref": "#/$defs/score"
+},
+"confidence_shift": {
+"$ref": "#/$defs/score"
+},
+"internal_conflict_detection": {
+"$ref": "#/$defs/score"
+},
+"viewpoint_shift": {
+"$ref": "#/$defs/score"
+},
+"catalyst_score": {
+"$ref": "#/$defs/score"
+},
+"catalyst_weights": {
+"type": "object",
+"required": [
+"self_question_trigger",
+"confidence_shift",
+"internal_conflict_detection",
+"viewpoint_shift"
+],
+"additionalProperties": false,
+"properties": {
+"self_question_trigger": {
+"$ref": "#/$defs/score"
+},
+"confidence_shift": {
+"$ref": "#/$defs/score"
+},
+"internal_conflict_detection": {
+"$ref": "#/$defs/score"
+},
+"viewpoint_shift": {
+"$ref": "#/$defs/score"
+}
+}
+}
+}
+},
 "q_point_summary": {
 "type": "object",
 "required": [
 "total_score",
 "confidence",
 "scoring_method",
+"scoring_signal_mode",
 "evaluation_status"
 ],
 "additionalProperties": false,
@@ -199,6 +302,14 @@
 "manual",
 "automated",
 "other"
+]
+},
+"scoring_signal_mode": {
+"type": "string",
+"enum": [
+"internal_signal_mode",
+"proxy_signal_mode",
+"hybrid_signal_mode"
 ]
 },
 "scoring_model_version": {
@@ -438,3 +549,4 @@
 }
 }
 }
+
