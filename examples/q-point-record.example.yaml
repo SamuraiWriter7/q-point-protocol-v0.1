@@ -23,11 +23,13 @@ related_concepts:
 - "Royalty OS"
 - "Epicenter ID"
 - "AI-mediated knowledge systems"
+- "C-vector"
+- "Catalyst Vector"
 
 q_point_vector:
 originality: 0.86
-depth: 0.91
-catalyst: 0.84
+depth: 0.90
+catalyst: 0.81
 structurality: 0.88
 resonance: 0.76
 reuse_potential: 0.72
@@ -37,11 +39,35 @@ ethical_alignment: 0.89
 cross_ai_relevance: 0.77
 long_term_value: 0.82
 
+q_point_components:
+originality: 0.86
+depth: 0.90
+catalyst: 0.81
+trace_persistence: 0.74
+component_weights:
+originality: 0.30
+depth: 0.25
+catalyst: 0.30
+trace_persistence: 0.15
+
+catalyst_vector:
+self_question_trigger: 0.88
+confidence_shift: 0.76
+internal_conflict_detection: 0.82
+viewpoint_shift: 0.72
+catalyst_score: 0.81
+catalyst_weights:
+self_question_trigger: 0.35
+confidence_shift: 0.25
+internal_conflict_detection: 0.25
+viewpoint_shift: 0.15
+
 q_point_summary:
-total_score: 0.83
-confidence: 0.78
+total_score: 0.84
+confidence: 0.79
 scoring_method: "hybrid_ai_assisted_review"
-scoring_model_version: "qpoint-evaluator-0.1"
+scoring_signal_mode: "proxy_signal_mode"
+scoring_model_version: "q-point-scoring-model-v0.2"
 evaluation_status: "draft"
 
 trace_links:
@@ -100,3 +126,4 @@ text: "This Q-Point record is a non-monetary value trace. It does not represent 
 notes:
 evaluator_note: "The contribution has strong structural potential and may serve as a bridge between Trace Protocol, Gratitude OS, and Royalty OS."
 implementation_note: "This example is for protocol validation and documentation purposes only."
+
