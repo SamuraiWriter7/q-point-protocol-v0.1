@@ -104,16 +104,17 @@ This contribution is identified through an **Epicenter ID**.
 
 ## Key Terms
 
-| Term                | Meaning                                                                                                                       |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `Q-Point`           | A non-monetary value trace score for question-based intellectual contribution.                                                |
-| `Epicenter ID`      | A unique identifier for the originating question, idea, or conceptual contribution.                                           |
-| `Trace Protocol`    | The evidence layer that records where a contribution came from and how it moved.                                              |
-| `Gratitude OS`      | A non-monetary appreciation layer that may use Q-Point records as reference data.                                             |
-| `Royalty OS`        | A future allocation layer that may use reviewed Q-Point records as weighting signals.                                         |
-| `C-vector`          | A Catalyst vector that decomposes how a question moved AI-mediated reasoning.                                                 |
-| `Depth Value`       | A value axis that emphasizes conceptual depth rather than popularity.                                                         |
-| `Value Circulation` | A conceptual loop connecting AI usage-side value inflow, Q-Point records, review, gratitude, and future allocation reference. |
+| Term                 | Meaning                                                                                                                       |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `Q-Point`            | A non-monetary value trace score for question-based intellectual contribution.                                                |
+| `Epicenter ID`       | A unique identifier for the originating question, idea, or conceptual contribution.                                           |
+| `Trace Protocol`     | The evidence layer that records where a contribution came from and how it moved.                                              |
+| `Gratitude OS`       | A non-monetary appreciation layer that may use Q-Point records as reference data.                                             |
+| `Royalty OS`         | A future allocation layer that may use reviewed Q-Point records as weighting signals.                                         |
+| `C-vector`           | A Catalyst vector that decomposes how a question moved AI-mediated reasoning.                                                 |
+| `Depth Value`        | A value axis that emphasizes conceptual depth rather than popularity.                                                         |
+| `Value Circulation`  | A conceptual loop connecting AI usage-side value inflow, Q-Point records, review, gratitude, and future allocation reference. |
+| `Royalty Point Maru` | A GPT interface for testing Q-Point evaluation behavior and generating Q-Point-style assessments.                             |
 
 ---
 
@@ -127,12 +128,13 @@ v0.1:
 
 v0.2.0-candidate:
   Adds Q-Point components, Catalyst C-vector, scoring signal modes,
-  AI Credit bridge logic, and value circulation documentation.
+  AI Credit bridge logic, value circulation documentation,
+  and a GPT behavior test sheet for Royalty Point Maru.
 ```
 
 The v0.2 candidate does not replace the non-monetary nature of Q-Point.
 
-It extends the protocol by making the scoring structure more interpretable, more reviewable, and more suitable for future value circulation models.
+It extends the protocol by making the scoring structure more interpretable, more reviewable, more testable, and more suitable for future value circulation models.
 
 ---
 
@@ -262,6 +264,36 @@ It does not create legal claims, debts, securities, automatic royalty rights, or
 
 ---
 
+## Royalty Point Maru GPT Test Sheet
+
+This repository includes a test sheet for **印税ポイント丸 / Royalty Point Maru**, a GPT designed to evaluate non-monetary value traces using Q-Point Protocol.
+
+The test sheet is documented in:
+
+```text
+docs/royalty-point-maru-test-sheet.md
+```
+
+The purpose of the test sheet is to verify whether the GPT can consistently:
+
+* evaluate Q-Point components
+* decompose Catalyst using the C-vector
+* generate `q_point_record` YAML
+* explain improvement points
+* analyze Royalty OS connection potential
+* detect hype or score manipulation
+* handle English and bilingual requests
+* include a Non-Monetary Notice
+* avoid payment, legal, or royalty overclaims
+
+This document serves as a practical behavior test layer for applying Q-Point Protocol through a GPT interface.
+
+It does not replace the protocol, schema, or scoring model.
+
+It tests whether an interface can use them safely and consistently.
+
+---
+
 ## Example Record
 
 A Q-Point record contains:
@@ -340,6 +372,7 @@ examples/q-point-record.example.yaml
 │   ├── q-point-protocol-v0.1.md
 │   ├── q-point-protocol-v0.2.md
 │   ├── q-point-scoring-model.md
+│   ├── royalty-point-maru-test-sheet.md
 │   └── value-circulation-diagram.md
 ├── examples
 │   └── q-point-record.example.yaml
@@ -363,6 +396,7 @@ examples/q-point-record.example.yaml
 | `docs/q-point-scoring-model.md`           | Scoring model document defining Q-Point components, Catalyst C-vector formulas, signal modes, confidence, and review guidance.                  |
 | `docs/ai-credit-to-royalty-os-bridge.md`  | Bridge document describing how usage-side AI value inflows may connect to reviewed Q-Point records and future Royalty OS allocation references. |
 | `docs/value-circulation-diagram.md`       | High-level value circulation diagram connecting AI Credit Layer, Q-Point, Review and Governance, Gratitude OS, and Royalty OS reference logic.  |
+| `docs/royalty-point-maru-test-sheet.md`   | GPT behavior test sheet for validating 印税ポイント丸 / Royalty Point Maru as a practical Q-Point Protocol interface.                                  |
 | `examples/q-point-record.example.yaml`    | Example Q-Point record using the C-vector model.                                                                                                |
 | `schemas/q-point-record.schema.json`      | JSON Schema for validating Q-Point records.                                                                                                     |
 | `scripts/validate_examples.py`            | Local validation script for examples and schemas.                                                                                               |
@@ -384,8 +418,9 @@ For first-time readers:
 4. docs/q-point-scoring-model.md
 5. docs/ai-credit-to-royalty-os-bridge.md
 6. docs/value-circulation-diagram.md
-7. examples/q-point-record.example.yaml
-8. schemas/q-point-record.schema.json
+7. docs/royalty-point-maru-test-sheet.md
+8. examples/q-point-record.example.yaml
+9. schemas/q-point-record.schema.json
 ```
 
 For implementers:
@@ -398,6 +433,17 @@ For implementers:
 5. docs/q-point-protocol-v0.2.md
 6. docs/ai-credit-to-royalty-os-bridge.md
 7. docs/value-circulation-diagram.md
+8. docs/royalty-point-maru-test-sheet.md
+```
+
+For GPT builders:
+
+```text
+1. docs/q-point-protocol-v0.2.md
+2. docs/q-point-scoring-model.md
+3. docs/royalty-point-maru-test-sheet.md
+4. examples/q-point-record.example.yaml
+5. schemas/q-point-record.schema.json
 ```
 
 For reviewers:
@@ -407,8 +453,9 @@ For reviewers:
 2. docs/q-point-scoring-model.md
 3. docs/ai-credit-to-royalty-os-bridge.md
 4. docs/value-circulation-diagram.md
-5. CHANGELOG.md
-6. CITATION.cff
+5. docs/royalty-point-maru-test-sheet.md
+6. CHANGELOG.md
+7. CITATION.cff
 ```
 
 ---
@@ -573,6 +620,31 @@ They define possible reference logic for future reviewed allocation, not automat
 
 ---
 
+## Relationship to Royalty Point Maru
+
+Royalty Point Maru is a GPT interface intended to apply Q-Point Protocol to user-provided text, questions, prompts, concepts, and structural ideas.
+
+It may generate:
+
+* Q-Point evaluations
+* Catalyst C-vector decomposition
+* improvement advice
+* Royalty OS connection analysis
+* `q_point_record` YAML drafts
+* non-monetary notices
+
+The test sheet is:
+
+```text
+docs/royalty-point-maru-test-sheet.md
+```
+
+This GPT interface is not a payment system.
+
+It is a practical evaluation interface for non-monetary value trace assessment.
+
+---
+
 ## Relationship to Licensing Standards
 
 Q-Point may complement licensing standards and machine-readable content usage frameworks.
@@ -706,6 +778,12 @@ Current value circulation diagram:
 value-circulation-diagram-v0.1.0
 ```
 
+Current GPT test sheet:
+
+```text
+royalty-point-maru-test-sheet-v0.1.0
+```
+
 Current validation status:
 
 ```text
@@ -731,6 +809,9 @@ Planned extensions may include:
 * dispute resolution workflow
 * value circulation example records
 * value circulation dashboard schema
+* Royalty Point Maru evaluation logs
+* Royalty Point Maru example outputs
+* GPT interface guidelines for Q-Point Protocol
 * privacy-preserving contribution tracking
 * cryptographic content hash verification
 * zero-knowledge contribution verification
@@ -791,8 +872,9 @@ It records the value of questions, ideas, and structural contributions before mo
 
 Its purpose is not to create a currency, but to preserve the trace of meaningful contribution.
 
-The v0.2 candidate adds Q-Point components, Catalyst C-vector, scoring signal modes, AI Credit bridge logic, and value circulation documentation.
+The v0.2 candidate adds Q-Point components, Catalyst C-vector, scoring signal modes, AI Credit bridge logic, value circulation documentation, and a GPT behavior test sheet for Royalty Point Maru.
 
 In the age of AI, the question itself becomes an epicenter.
 
 Q-Point is the record of that epicenter.
+
