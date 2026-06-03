@@ -11,12 +11,14 @@ This project follows a lightweight versioning approach during the Working Draft 
 ### Added
 
 * Added Catalyst C-vector support to the Q-Point record model.
+
 * Added `q_point_components` to represent the main Q-Point scoring components:
 
   * `originality`
   * `depth`
   * `catalyst`
   * `trace_persistence`
+
 * Added `catalyst_vector` to represent how a contribution moves AI-mediated reasoning:
 
   * `self_question_trigger`
@@ -24,26 +26,39 @@ This project follows a lightweight versioning approach during the Working Draft 
   * `internal_conflict_detection`
   * `viewpoint_shift`
   * `catalyst_score`
+
 * Added `component_weights` for the main Q-Point scoring formula.
+
 * Added `catalyst_weights` for the C-vector scoring formula.
+
 * Added `scoring_signal_mode` to distinguish between:
 
   * `internal_signal_mode`
   * `proxy_signal_mode`
   * `hybrid_signal_mode`
+
 * Added C-vector related concepts to the example record.
+
 * Added the v0.2 candidate protocol document:
 
   * `docs/q-point-protocol-v0.2.md`
+
 * Added the formal scoring model document:
 
   * `docs/q-point-scoring-model.md`
+
 * Added the AI Credit to Royalty OS bridge document:
 
   * `docs/ai-credit-to-royalty-os-bridge.md`
+
 * Added the value circulation diagram document:
 
   * `docs/value-circulation-diagram.md`
+
+* Added the Royalty Point Maru GPT behavior test sheet:
+
+  * `docs/royalty-point-maru-test-sheet.md`
+
 * Added README documentation for:
 
   * Q-Point overview
@@ -51,18 +66,23 @@ This project follows a lightweight versioning approach during the Working Draft 
   * Catalyst C-vector
   * Internal and Proxy Signal Modes
   * Value Circulation Model
+  * Royalty Point Maru GPT test sheet
   * Validation workflow
   * Relationship to Trace Protocol, Gratitude OS, Royalty OS, and licensing standards
   * AI Credit to Royalty OS bridge
+
 * Added GitHub Actions validation workflow for Q-Point examples:
 
   * `.github/workflows/validate-examples.yml`
+
 * Added local validation script:
 
   * `scripts/validate_examples.py`
+
 * Added citation metadata:
 
   * `CITATION.cff`
+
 * Added MIT License:
 
   * `LICENSE`
@@ -70,31 +90,44 @@ This project follows a lightweight versioning approach during the Working Draft 
 ### Updated
 
 * Updated `examples/q-point-record.example.yaml` with C-vector fields.
+
 * Updated `schemas/q-point-record.schema.json` to validate:
 
   * `q_point_components`
   * `catalyst_vector`
   * `scoring_signal_mode`
+
 * Updated `README.md` to reflect the current repository structure.
+
 * Updated `README.md` Key Documents section to include:
 
   * `docs/q-point-protocol-v0.2.md`
   * `docs/q-point-scoring-model.md`
   * `docs/ai-credit-to-royalty-os-bridge.md`
   * `docs/value-circulation-diagram.md`
+  * `docs/royalty-point-maru-test-sheet.md`
+
 * Updated `README.md` Recommended Reading Order for:
 
   * first-time readers
   * implementers
+  * GPT builders
   * reviewers
+
 * Updated `README.md` Future Work section to include:
 
   * AI Credit to Royalty OS bridge schema
   * AI Credit to Royalty OS bridge example records
   * value circulation example records
   * value circulation dashboard schema
+  * Royalty Point Maru evaluation logs
+  * Royalty Point Maru example outputs
+  * GPT interface guidelines for Q-Point Protocol
+
 * Updated validation instructions for local and GitHub Actions usage.
+
 * Updated the Q-Point model from a simple value trace record toward a C-vector compatible scoring structure.
+
 * Updated project metadata toward `v0.2.0-candidate`.
 
 ### Validation
@@ -176,6 +209,34 @@ It does not define an automatic payment system.
 
 It does not create legal claims, debts, securities, automatic royalty rights, or guaranteed future income.
 
+### Royalty Point Maru Test Sheet
+
+This candidate release adds a GPT behavior test sheet for **印税ポイント丸 / Royalty Point Maru**.
+
+The test sheet is defined in:
+
+```text
+docs/royalty-point-maru-test-sheet.md
+```
+
+The test sheet is designed to verify whether a GPT interface can consistently apply Q-Point Protocol behavior.
+
+It checks whether the GPT can:
+
+* evaluate Q-Point components
+* decompose Catalyst using the C-vector
+* generate `q_point_record` YAML
+* provide improvement advice
+* analyze Royalty OS connection potential
+* detect hype or score manipulation
+* handle English and bilingual requests
+* include a Non-Monetary Notice
+* avoid monetary, legal, and automatic royalty overclaims
+
+This document does not replace the protocol, schema, or scoring model.
+
+It provides a practical behavior test layer for applying Q-Point Protocol through a GPT interface.
+
 ### Notes
 
 This candidate release introduces the first structured C-vector model for Catalyst scoring.
@@ -217,12 +278,15 @@ Q-Point records do not represent currency, securities, legal ownership, debt, au
 * Added initial Q-Point Protocol documentation:
 
   * `docs/q-point-protocol-v0.1.md`
+
 * Defined Q-Point as a non-monetary value trace score for question-based intellectual contribution.
+
 * Introduced the basic Q-Point lifecycle:
 
   * Internal Value Trace
   * Visualization and Meaning Return
   * Future Allocation Reference
+
 * Introduced the core Q-Point vector dimensions:
 
   * `originality`
@@ -231,6 +295,7 @@ Q-Point records do not represent currency, securities, legal ownership, debt, au
   * `structurality`
   * `resonance`
   * `reuse_potential`
+
 * Introduced optional dimensions:
 
   * `clarity`
@@ -238,20 +303,26 @@ Q-Point records do not represent currency, securities, legal ownership, debt, au
   * `ethical_alignment`
   * `cross_ai_relevance`
   * `long_term_value`
+
 * Introduced Epicenter ID as a contribution-centered identifier.
+
 * Added initial Q-Point example record:
 
   * `examples/q-point-record.example.yaml`
+
 * Added initial JSON Schema:
 
   * `schemas/q-point-record.schema.json`
+
 * Added non-monetary disclaimer requirements.
+
 * Added initial relationship notes for:
 
   * Trace Protocol
   * Gratitude OS
   * Royalty OS
   * licensing standards
+
 * Added privacy, consent, anti-gaming, and governance considerations.
 
 ### Notes
@@ -285,6 +356,9 @@ Distribute later.
 * Add AI Credit to Royalty OS bridge example records.
 * Add value circulation example records.
 * Add value circulation dashboard schema.
+* Add Royalty Point Maru evaluation logs.
+* Add Royalty Point Maru example outputs.
+* Add GPT interface guidelines for Q-Point Protocol.
 * Add dispute resolution workflow.
 * Add privacy-preserving contribution tracking notes.
 * Add cryptographic content hash verification notes.
@@ -325,6 +399,9 @@ The AI Credit to Royalty OS bridge also remains non-executing and non-monetary a
 
 The value circulation diagram is conceptual and non-executing.
 
-It defines architecture and reference logic only, not automatic payment.
+Royalty Point Maru is a GPT interface for non-monetary Q-Point evaluation, not a payment system.
+
+These documents define architecture, evaluation behavior, and reference logic only, not automatic payment.
+
 
 
