@@ -7,50 +7,50 @@ type: software
 license: MIT
 
 authors:
-
-* name: "SamuraiWriter7"
+  - name: "SamuraiWriter7"
 
 repository-code: "https://github.com/SamuraiWriter7/q-point-protocol-v0.1"
 
 abstract: >
-Q-Point Protocol is a non-monetary value trace specification for recording
-question-based intellectual contribution in AI-mediated knowledge systems.
-The v0.2.0-candidate release introduced the Catalyst C-vector scoring model,
-which decomposes catalytic influence into Self-Question Trigger, Confidence
-Shift, Internal Conflict Detection, and Viewpoint Shift. The v0.3.0-candidate
-release extends the protocol with a Signed Q-Point Record model, including
-signature metadata, record hashes, source hashes, Epicenter ID binding, Trace
-Protocol binding, and verification-oriented record structure. Q-Point records
-and signed Q-Point records remain non-monetary value traces and do not
-represent currency, securities, legal ownership, debt, automatic royalty
-rights, guaranteed future income, or claims to payment.
+  Q-Point Protocol is a non-monetary value trace specification for recording
+  question-based intellectual contribution in AI-mediated knowledge systems.
+  The v0.2.0-candidate release introduced the Catalyst C-vector scoring model,
+  which decomposes catalytic influence into Self-Question Trigger, Confidence
+  Shift, Internal Conflict Detection, and Viewpoint Shift.
+  The v0.3.0-candidate release extends the protocol with a Signed Q-Point
+  Record model, including signature metadata, record hashes, source hashes,
+  Epicenter ID binding, Trace Protocol binding, and verification-oriented
+  record structure. Q-Point records and signed Q-Point records remain
+  non-monetary value traces and do not represent currency, securities,
+  legal ownership, debt, automatic royalty rights, guaranteed future income,
+  or claims to payment.
 
 keywords:
-
-* q-point
-* question-value
-* value-trace
-* ai-protocol
-* trace-protocol
-* gratitude-os
-* royalty-os
-* creator-economy
-* ai-attribution
-* knowledge-systems
-* catalyst-vector
-* c-vector
-* signed-record
-* digital-signature
-* trace-binding
-* epicenter-id
-* value-circulation
+  - q-point
+  - question-value
+  - value-trace
+  - ai-protocol
+  - trace-protocol
+  - gratitude-os
+  - royalty-os
+  - creator-economy
+  - ai-attribution
+  - knowledge-systems
+  - catalyst-vector
+  - c-vector
+  - signed-record
+  - digital-signature
+  - trace-binding
+  - epicenter-id
+  - value-circulation
 
 preferred-citation:
-type: software
-title: "Q-Point Protocol v0.3.0-candidate"
-authors:
-- name: "SamuraiWriter7"
-version: "0.3.0-candidate"
-date-released: "2026-06-03"
-repository-code: "https://github.com/SamuraiWriter7/q-point-protocol-v0.1"
+  type: software
+  title: "Q-Point Protocol v0.3.0-candidate"
+  authors:
+    - name: "SamuraiWriter7"
+  version: "0.3.0-candidate"
+  date-released: "2026-06-03"
+  repository-code: "https://github.com/SamuraiWriter7/q-point-protocol-v0.1"
+
 
