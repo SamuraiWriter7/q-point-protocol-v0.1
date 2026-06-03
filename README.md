@@ -104,23 +104,24 @@ This contribution is identified through an **Epicenter ID**.
 
 ## Key Terms
 
-| Term                 | Meaning                                                                                                                       |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `Q-Point`            | A non-monetary value trace score for question-based intellectual contribution.                                                |
-| `Epicenter ID`       | A unique identifier for the originating question, idea, or conceptual contribution.                                           |
-| `Trace Protocol`     | The evidence layer that records where a contribution came from and how it moved.                                              |
-| `Gratitude OS`       | A non-monetary appreciation layer that may use Q-Point records as reference data.                                             |
-| `Royalty OS`         | A future allocation layer that may use reviewed Q-Point records as weighting signals.                                         |
-| `C-vector`           | A Catalyst vector that decomposes how a question moved AI-mediated reasoning.                                                 |
-| `Depth Value`        | A value axis that emphasizes conceptual depth rather than popularity.                                                         |
-| `Value Circulation`  | A conceptual loop connecting AI usage-side value inflow, Q-Point records, review, gratitude, and future allocation reference. |
-| `Royalty Point Maru` | A GPT interface for testing Q-Point evaluation behavior and generating Q-Point-style assessments.                             |
+| Term                    | Meaning                                                                                                                       |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `Q-Point`               | A non-monetary value trace score for question-based intellectual contribution.                                                |
+| `Epicenter ID`          | A unique identifier for the originating question, idea, or conceptual contribution.                                           |
+| `Trace Protocol`        | The evidence layer that records where a contribution came from and how it moved.                                              |
+| `Gratitude OS`          | A non-monetary appreciation layer that may use Q-Point records as reference data.                                             |
+| `Royalty OS`            | A future allocation layer that may use reviewed Q-Point records as weighting signals.                                         |
+| `C-vector`              | A Catalyst vector that decomposes how a question moved AI-mediated reasoning.                                                 |
+| `Depth Value`           | A value axis that emphasizes conceptual depth rather than popularity.                                                         |
+| `Value Circulation`     | A conceptual loop connecting AI usage-side value inflow, Q-Point records, review, gratitude, and future allocation reference. |
+| `Signed Q-Point Record` | A Q-Point record with signature metadata, hashes, binding data, and verification status.                                      |
+| `Royalty Point Maru`    | A GPT interface for testing Q-Point evaluation behavior and generating Q-Point-style assessments.                             |
 
 ---
 
 ## Current Candidate Layer
 
-This repository currently contains both the initial protocol document and the v0.2 candidate extension.
+This repository currently contains the initial protocol document, the v0.2 candidate extension, and early v0.3 signature-model components.
 
 ```text
 v0.1:
@@ -130,11 +131,15 @@ v0.2.0-candidate:
   Adds Q-Point components, Catalyst C-vector, scoring signal modes,
   AI Credit bridge logic, value circulation documentation,
   and a GPT behavior test sheet for Royalty Point Maru.
+
+v0.3.0-candidate direction:
+  Adds signed Q-Point records, signature metadata, trace binding,
+  and verification-oriented record structure.
 ```
 
-The v0.2 candidate does not replace the non-monetary nature of Q-Point.
+The v0.2 and v0.3 candidate layers do not replace the non-monetary nature of Q-Point.
 
-It extends the protocol by making the scoring structure more interpretable, more reviewable, more testable, and more suitable for future value circulation models.
+They extend the protocol by making the scoring structure more interpretable, more reviewable, more testable, and more verifiable.
 
 ---
 
@@ -217,6 +222,52 @@ scoring_signal_mode: "proxy_signal_mode"
 ```
 
 This allows Q-Point to be implemented even when private model internals are not available.
+
+---
+
+## Signed Q-Point Record Model
+
+The signed Q-Point record model adds a verification layer to Q-Point records.
+
+It is documented in:
+
+```text
+docs/q-point-record-signature-model.md
+```
+
+The purpose of this model is to make Q-Point records more:
+
+* verifiable
+* traceable
+* reviewable
+* tamper-aware
+* source-bound
+* suitable for future attribution or allocation review
+
+A signed Q-Point record may include:
+
+* original Q-Point record data
+* signature metadata
+* canonicalization method
+* record hash
+* source hash
+* schema hash
+* scoring model hash
+* Epicenter ID binding
+* Trace Protocol binding
+* signature scope
+* signer metadata
+* signature value
+* verification result
+* non-monetary notice
+
+A signed Q-Point record is still non-monetary.
+
+It does not create money, legal ownership, debt, automatic royalty rights, or a claim to payment.
+
+The signature layer verifies record integrity and binding context.
+
+It does not automatically verify truth, authorship, entitlement, or royalty readiness.
 
 ---
 
@@ -359,6 +410,50 @@ examples/q-point-record.example.yaml
 
 ---
 
+## Signed Example Record
+
+A signed Q-Point record wraps a Q-Point record with signature metadata.
+
+Example sections include:
+
+```yaml
+signed_q_point_record:
+  q_point_record:
+    record_id: "qpr-2026-000001"
+
+  signature_metadata:
+    signature_model_version: "0.1.0"
+    signature_status:
+      signed: true
+      signature_placeholder: true
+      verification_required: true
+
+    hashes:
+      source_hash:
+        algorithm: "sha256"
+        value: "sha256-source-placeholder"
+      record_hash:
+        algorithm: "sha256"
+        value: "sha256-record-placeholder"
+
+    signatures:
+      - signature_id: "sig-2026-000001"
+        signature_type: "record_signature"
+        signature_algorithm: "Ed25519"
+        verification_status: "unverified"
+
+  non_monetary_notice:
+    text: "A signed Q-Point record is a signed non-monetary value trace."
+```
+
+See:
+
+```text
+examples/signed-q-point-record.example.yaml
+```
+
+---
+
 ## Repository Structure
 
 ```text
@@ -371,13 +466,16 @@ examples/q-point-record.example.yaml
 │   ├── ai-credit-to-royalty-os-bridge.md
 │   ├── q-point-protocol-v0.1.md
 │   ├── q-point-protocol-v0.2.md
+│   ├── q-point-record-signature-model.md
 │   ├── q-point-scoring-model.md
 │   ├── royalty-point-maru-test-sheet.md
 │   └── value-circulation-diagram.md
 ├── examples
-│   └── q-point-record.example.yaml
+│   ├── q-point-record.example.yaml
+│   └── signed-q-point-record.example.yaml
 ├── schemas
-│   └── q-point-record.schema.json
+│   ├── q-point-record.schema.json
+│   └── signed-q-point-record.schema.json
 ├── scripts
 │   └── validate_examples.py
 └── .github
@@ -389,21 +487,24 @@ examples/q-point-record.example.yaml
 
 ## Key Documents
 
-| File                                      | Purpose                                                                                                                                         |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `docs/q-point-protocol-v0.1.md`           | Initial protocol document defining Q-Point as a non-monetary value trace layer.                                                                 |
-| `docs/q-point-protocol-v0.2.md`           | Candidate protocol extension integrating Q-Point components, Catalyst C-vector, and scoring signal modes.                                       |
-| `docs/q-point-scoring-model.md`           | Scoring model document defining Q-Point components, Catalyst C-vector formulas, signal modes, confidence, and review guidance.                  |
-| `docs/ai-credit-to-royalty-os-bridge.md`  | Bridge document describing how usage-side AI value inflows may connect to reviewed Q-Point records and future Royalty OS allocation references. |
-| `docs/value-circulation-diagram.md`       | High-level value circulation diagram connecting AI Credit Layer, Q-Point, Review and Governance, Gratitude OS, and Royalty OS reference logic.  |
-| `docs/royalty-point-maru-test-sheet.md`   | GPT behavior test sheet for validating 印税ポイント丸 / Royalty Point Maru as a practical Q-Point Protocol interface.                                  |
-| `examples/q-point-record.example.yaml`    | Example Q-Point record using the C-vector model.                                                                                                |
-| `schemas/q-point-record.schema.json`      | JSON Schema for validating Q-Point records.                                                                                                     |
-| `scripts/validate_examples.py`            | Local validation script for examples and schemas.                                                                                               |
-| `.github/workflows/validate-examples.yml` | GitHub Actions workflow for automated validation.                                                                                               |
-| `CHANGELOG.md`                            | Version history and candidate release notes.                                                                                                    |
-| `CITATION.cff`                            | Citation metadata for academic and software citation.                                                                                           |
-| `LICENSE`                                 | MIT License.                                                                                                                                    |
+| File                                          | Purpose                                                                                                                                         |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `docs/q-point-protocol-v0.1.md`               | Initial protocol document defining Q-Point as a non-monetary value trace layer.                                                                 |
+| `docs/q-point-protocol-v0.2.md`               | Candidate protocol extension integrating Q-Point components, Catalyst C-vector, and scoring signal modes.                                       |
+| `docs/q-point-scoring-model.md`               | Scoring model document defining Q-Point components, Catalyst C-vector formulas, signal modes, confidence, and review guidance.                  |
+| `docs/q-point-record-signature-model.md`      | Signature model defining signed Q-Point records, hashes, signature scopes, source binding, Trace Protocol binding, and verification flow.       |
+| `docs/ai-credit-to-royalty-os-bridge.md`      | Bridge document describing how usage-side AI value inflows may connect to reviewed Q-Point records and future Royalty OS allocation references. |
+| `docs/value-circulation-diagram.md`           | High-level value circulation diagram connecting AI Credit Layer, Q-Point, Review and Governance, Gratitude OS, and Royalty OS reference logic.  |
+| `docs/royalty-point-maru-test-sheet.md`       | GPT behavior test sheet for validating 印税ポイント丸 / Royalty Point Maru as a practical Q-Point Protocol interface.                                  |
+| `examples/q-point-record.example.yaml`        | Example Q-Point record using the C-vector model.                                                                                                |
+| `examples/signed-q-point-record.example.yaml` | Example signed Q-Point record with signature metadata and verification status.                                                                  |
+| `schemas/q-point-record.schema.json`          | JSON Schema for validating Q-Point records.                                                                                                     |
+| `schemas/signed-q-point-record.schema.json`   | JSON Schema for validating signed Q-Point records.                                                                                              |
+| `scripts/validate_examples.py`                | Local validation script for examples and schemas.                                                                                               |
+| `.github/workflows/validate-examples.yml`     | GitHub Actions workflow for automated validation.                                                                                               |
+| `CHANGELOG.md`                                | Version history and candidate release notes.                                                                                                    |
+| `CITATION.cff`                                | Citation metadata for academic and software citation.                                                                                           |
+| `LICENSE`                                     | MIT License.                                                                                                                                    |
 
 ---
 
@@ -416,24 +517,29 @@ For first-time readers:
 2. docs/q-point-protocol-v0.1.md
 3. docs/q-point-protocol-v0.2.md
 4. docs/q-point-scoring-model.md
-5. docs/ai-credit-to-royalty-os-bridge.md
-6. docs/value-circulation-diagram.md
-7. docs/royalty-point-maru-test-sheet.md
-8. examples/q-point-record.example.yaml
-9. schemas/q-point-record.schema.json
+5. docs/q-point-record-signature-model.md
+6. docs/ai-credit-to-royalty-os-bridge.md
+7. docs/value-circulation-diagram.md
+8. docs/royalty-point-maru-test-sheet.md
+9. examples/q-point-record.example.yaml
+10. examples/signed-q-point-record.example.yaml
+11. schemas/q-point-record.schema.json
+12. schemas/signed-q-point-record.schema.json
 ```
 
 For implementers:
 
 ```text
 1. schemas/q-point-record.schema.json
-2. examples/q-point-record.example.yaml
-3. scripts/validate_examples.py
-4. docs/q-point-scoring-model.md
-5. docs/q-point-protocol-v0.2.md
-6. docs/ai-credit-to-royalty-os-bridge.md
-7. docs/value-circulation-diagram.md
-8. docs/royalty-point-maru-test-sheet.md
+2. schemas/signed-q-point-record.schema.json
+3. examples/q-point-record.example.yaml
+4. examples/signed-q-point-record.example.yaml
+5. scripts/validate_examples.py
+6. docs/q-point-scoring-model.md
+7. docs/q-point-record-signature-model.md
+8. docs/q-point-protocol-v0.2.md
+9. docs/ai-credit-to-royalty-os-bridge.md
+10. docs/value-circulation-diagram.md
 ```
 
 For GPT builders:
@@ -442,8 +548,11 @@ For GPT builders:
 1. docs/q-point-protocol-v0.2.md
 2. docs/q-point-scoring-model.md
 3. docs/royalty-point-maru-test-sheet.md
-4. examples/q-point-record.example.yaml
-5. schemas/q-point-record.schema.json
+4. docs/q-point-record-signature-model.md
+5. examples/q-point-record.example.yaml
+6. examples/signed-q-point-record.example.yaml
+7. schemas/q-point-record.schema.json
+8. schemas/signed-q-point-record.schema.json
 ```
 
 For reviewers:
@@ -451,18 +560,19 @@ For reviewers:
 ```text
 1. docs/q-point-protocol-v0.2.md
 2. docs/q-point-scoring-model.md
-3. docs/ai-credit-to-royalty-os-bridge.md
-4. docs/value-circulation-diagram.md
-5. docs/royalty-point-maru-test-sheet.md
-6. CHANGELOG.md
-7. CITATION.cff
+3. docs/q-point-record-signature-model.md
+4. docs/ai-credit-to-royalty-os-bridge.md
+5. docs/value-circulation-diagram.md
+6. docs/royalty-point-maru-test-sheet.md
+7. CHANGELOG.md
+8. CITATION.cff
 ```
 
 ---
 
 ## Validation
 
-This repository includes schema validation for Q-Point example records.
+This repository includes schema validation for both standard Q-Point records and signed Q-Point records.
 
 ### Requirements
 
@@ -483,8 +593,14 @@ python scripts/validate_examples.py
 Expected success output:
 
 ```text
+Validating target: Q-Point Record
 Validating example: examples/q-point-record.example.yaml
 Using schema: schemas/q-point-record.schema.json
+Validation passed.
+
+Validating target: Signed Q-Point Record
+Validating example: examples/signed-q-point-record.example.yaml
+Using schema: schemas/signed-q-point-record.schema.json
 Validation passed.
 
 All examples passed validation.
@@ -515,9 +631,12 @@ Trace Protocol records where a contribution came from and how it moved.
 
 Q-Point adds a value-depth interpretation layer on top of trace records.
 
+The signature model adds integrity and binding verification.
+
 ```text
 Trace Protocol = Evidence layer
 Q-Point Protocol = Value trace layer
+Signature Model = Integrity and binding layer
 ```
 
 A possible flow:
@@ -527,7 +646,11 @@ Trace ID
   ↓
 Epicenter ID
   ↓
-Q-Point Vector
+Q-Point Record
+  ↓
+Signed Q-Point Record
+  ↓
+Verification
   ↓
 Review
 ```
@@ -540,8 +663,11 @@ Gratitude OS expresses non-monetary appreciation for contribution.
 
 Q-Point can provide structured reference data for Gratitude OS.
 
+Signed Q-Point records may improve confidence in the integrity of contribution records.
+
 ```text
 Q-Point = Value trace
+Signed Q-Point = Verifiable value trace
 Gratitude OS = Meaning return
 ```
 
@@ -551,6 +677,8 @@ For example:
 High-depth question
   ↓
 Q-Point record
+  ↓
+Signed Q-Point record
   ↓
 AI-generated gratitude message
   ↓
@@ -567,10 +695,14 @@ Q-Point does not perform distribution directly.
 
 Instead, Q-Point may provide reference data for future allocation review.
 
-```text
-Q-Point = Contribution weight signal
-Royalty OS = Allocation execution layer
-```
+Signed Q-Point records may improve:
+
+* record integrity
+* source binding
+* trace review
+* dispute handling
+* audit readiness
+* governance review
 
 Possible future flow:
 
@@ -578,6 +710,8 @@ Possible future flow:
 Trace Record
   ↓
 Q-Point Record
+  ↓
+Signed Q-Point Record
   ↓
 Human / institutional review
   ↓
@@ -587,6 +721,8 @@ Royalty OS Allocation
 ```
 
 The conversion from Q-Point to royalty must not be automatic unless a clear legal, contractual, and governance framework exists.
+
+A valid signature does not automatically make a record royalty-ready.
 
 ---
 
@@ -598,6 +734,8 @@ The AI Credit to Royalty OS Bridge describes how usage-side AI value inflows may
 AI Credit Layer
   ↓
 Q-Point Value Measurement Layer
+  ↓
+Signed Q-Point Record
   ↓
 Royalty OS Allocation Reference Layer
 ```
@@ -633,6 +771,13 @@ It may generate:
 * `q_point_record` YAML drafts
 * non-monetary notices
 
+Royalty Point Maru may generate draft records, but it should not claim cryptographic signing unless connected to a real signing service or external action.
+
+```text
+Royalty Point Maru = Evaluation interface
+Signature Model = Verification and integrity layer
+```
+
 The test sheet is:
 
 ```text
@@ -663,11 +808,14 @@ Q-Point can define:
 * whether it served as an intellectual epicenter
 * how it should be considered during future review
 
+Signed Q-Point records may help preserve the integrity of the contribution record used during licensing or allocation review.
+
 Thus:
 
 ```text
 License Layer = Permission and terms
 Q-Point Layer = Contribution depth and value trace
+Signature Layer = Integrity and binding
 Royalty Layer = Distribution and settlement
 ```
 
@@ -676,6 +824,8 @@ Royalty Layer = Distribution and settlement
 ## Non-Monetary Disclaimer
 
 Q-Point records are non-monetary value traces.
+
+Signed Q-Point records are also non-monetary value traces.
 
 They do not represent:
 
@@ -695,6 +845,12 @@ Recommended disclaimer:
 This Q-Point record is a non-monetary value trace. It does not represent currency, securities, legal ownership, automatic royalty rights, debt, or a claim to payment. It may be used as reference data for future review, attribution, gratitude, licensing, or allocation systems.
 ```
 
+Recommended signed-record notice:
+
+```text
+A signed Q-Point record is a signed non-monetary value trace. The signature verifies record integrity, source binding, or reviewer attestation. It does not represent currency, securities, legal ownership, debt, automatic royalty rights, guaranteed future income, or a claim to payment.
+```
+
 ---
 
 ## Privacy and Consent
@@ -709,6 +865,20 @@ Recommended safeguards:
 * separate identity from contribution
 * support deletion or suppression requests where appropriate
 * clearly explain what is being recorded
+
+Signed records require additional care.
+
+A signature may persistently associate a record with a signer, timestamp, key, or system.
+
+Implementations should consider:
+
+* pseudonymous signatures
+* private signatures
+* selective disclosure
+* key rotation
+* key revocation
+* redaction workflows
+* separation between identity and contribution
 
 The protocol should record the contribution without unnecessarily exposing the person.
 
@@ -727,6 +897,15 @@ Q-Point implementations should include safeguards against:
 * score optimization without real value
 * self-praise or authority manipulation
 
+Signed records also require safeguards against:
+
+* signing inflated records
+* using signatures to imply legal entitlement
+* falsely claiming source binding
+* creating many pseudonymous signatures
+* treating cryptographic validity as truth
+* treating signature presence as royalty readiness
+
 Recommended safeguards include:
 
 * duplicate detection
@@ -734,7 +913,10 @@ Recommended safeguards include:
 * confidence scores
 * human review for high-impact records
 * delayed scoring for long-term influence
-* separation between raw score and reviewed score
+* source hash binding
+* signature verification
+* dispute status
+* separation between raw score, signed record, and reviewed allocation readiness
 
 Q-Point should reward contribution quality, not scoring manipulation.
 
@@ -760,10 +942,22 @@ Current candidate extension:
 0.2.0-candidate
 ```
 
+Current signature-model direction:
+
+```text
+0.3.0-candidate
+```
+
 Current scoring model:
 
 ```text
 q-point-scoring-model-v0.2
+```
+
+Current signature model:
+
+```text
+q-point-record-signature-model-v0.1.0
 ```
 
 Current bridge model:
@@ -787,7 +981,7 @@ royalty-point-maru-test-sheet-v0.1.0
 Current validation status:
 
 ```text
-GitHub Actions validation passing
+GitHub Actions validation passing for standard and signed examples
 ```
 
 ---
@@ -800,6 +994,11 @@ Planned extensions may include:
 * pass / fail validation test vectors
 * Epicenter ID specification
 * Q-Point dashboard schema
+* Signed Q-Point Record refinement
+* signature verification script
+* key registry format
+* signature revocation format
+* Trace Protocol binding schema
 * AI Credit to Royalty OS bridge schema
 * AI Credit to Royalty OS bridge example records
 * Gratitude OS bridge document
@@ -874,7 +1073,10 @@ Its purpose is not to create a currency, but to preserve the trace of meaningful
 
 The v0.2 candidate adds Q-Point components, Catalyst C-vector, scoring signal modes, AI Credit bridge logic, value circulation documentation, and a GPT behavior test sheet for Royalty Point Maru.
 
+The v0.3 candidate direction adds signed Q-Point records, signature metadata, trace binding, and verification-oriented record structure.
+
 In the age of AI, the question itself becomes an epicenter.
 
 Q-Point is the record of that epicenter.
 
+Signed Q-Point is the verifiable record of that epicenter.
