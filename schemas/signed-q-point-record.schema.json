@@ -541,9 +541,26 @@
         "verified_at": { "type": ["string", "null"], "format": "date-time" },
 
         "checks": {
-          "type": "object",
-          "required": [
-            "schema_valid",
-            "record_hash_match",
-            "source_hash_match",
-            "scoring_model_hash
+            "type": "object",
+            "required": [
+              "schema_valid",
+              "record_hash_match",
+              "source_hash_match",
+              "scoring_model_hash_match",
+              "signature_valid",
+              "signer_key_found",
+              "signer_trusted",
+              "record_disputed"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "schema_valid": { "type": ["boolean", "null"] },
+              "record_hash_match": { "type": ["boolean", "null"] },
+              "source_hash_match": { "type": ["boolean", "null"] },
+              "scoring_model_hash_match": { "type": ["boolean", "null"] },
+              "signature_valid": { "type": ["boolean", "null"] },
+              "signer_key_found": { "type": ["boolean", "null"] },
+              "signer_trusted": { "type": "string" },
+              "record_disputed": { "type": "boolean" }
+            }
+          }
