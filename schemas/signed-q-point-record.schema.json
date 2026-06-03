@@ -540,27 +540,36 @@
         "verification_status": { "$ref": "#/$defs/verification_status" },
         "verified_at": { "type": ["string", "null"], "format": "date-time" },
 
-        "checks": {
-            "type": "object",
-            "required": [
-              "schema_valid",
-              "record_hash_match",
-              "source_hash_match",
-              "scoring_model_hash_match",
-              "signature_valid",
-              "signer_key_found",
-              "signer_trusted",
-              "record_disputed"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "schema_valid": { "type": ["boolean", "null"] },
-              "record_hash_match": { "type": ["boolean", "null"] },
-              "source_hash_match": { "type": ["boolean", "null"] },
-              "scoring_model_hash_match": { "type": ["boolean", "null"] },
-              "signature_valid": { "type": ["boolean", "null"] },
-              "signer_key_found": { "type": ["boolean", "null"] },
-              "signer_trusted": { "type": "string" },
-              "record_disputed": { "type": "boolean" }
+              },
+        "interpretation": {
+          "type": "object",
+          "required": [
+            "cryptographic_integrity",
+            "attribution_confidence",
+            "legal_claim_created",
+            "royalty_ready",
+            "review_required"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "cryptographic_integrity": {
+              "type": "string"
+            },
+            "attribution_confidence": {
+              "type": "string"
+            },
+            "legal_claim_created": {
+              "type": "boolean"
+            },
+            "royalty_ready": {
+              "type": "boolean"
+            },
+            "review_required": {
+              "type": "boolean"
             }
           }
+        }
+      }
+    }
+  }
+}
