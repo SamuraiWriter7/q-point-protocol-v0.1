@@ -1,626 +1,586 @@
 {
-"$schema": "https://json-schema.org/draft/2020-12/schema",
-"$id": "https://example.org/schemas/signed-q-point-record.schema.json",
-"title": "Signed Q-Point Record Schema",
-"description": "Schema for validating signed Q-Point records with signature metadata, trace binding, and non-monetary notice.",
-"type": "object",
-"required": [
-"signed_q_point_record"
-],
-"additionalProperties": false,
-"properties": {
-"signed_q_point_record": {
-"type": "object",
-"required": [
-"q_point_record",
-"signature_metadata",
-"non_monetary_notice"
-],
-"additionalProperties": false,
-"properties": {
-"q_point_record": {
-"$ref": "#/$defs/q_point_record"
-},
-"signature_metadata": {
-"$ref": "#/$defs/signature_metadata"
-},
-"non_monetary_notice": {
-"type": "object",
-"required": [
-"text"
-],
-"additionalProperties": false,
-"properties": {
-"text": {
-"type": "string",
-"minLength": 1
-}
-}
-}
-}
-}
-},
-"$defs": {
-"hash_object": {
-"type": "object",
-"required": [
-"algorithm",
-"value"
-],
-"additionalProperties": false,
-"properties": {
-"algorithm": {
-"type": "string",
-"enum": [
-"sha256",
-"sha384",
-"sha512",
-"blake3",
-"other"
-]
-},
-"value": {
-"type": "string",
-"minLength": 1
-}
-}
-},
-"q_point_record": {
-"type": "object",
-"required": [
-"record_id",
-"protocol_version",
-"created_at",
-"epicenter",
-"source",
-"q_point_vector",
-"q_point_components",
-"catalyst_vector",
-"q_point_summary",
-"status",
-"disclaimer"
-],
-"additionalProperties": true,
-"properties": {
-"record_id": {
-"type": "string",
-"pattern": "^qpr-[0-9]{4}-[0-9A-Za-z_-]+$"
-},
-"protocol_version": {
-"type": "string"
-},
-"created_at": {
-"type": "string",
-"format": "date-time"
-},
-"updated_at": {
-"type": "string",
-"format": "date-time"
-},
-"epicenter": {
-"type": "object"
-},
-"source": {
-"type": "object"
-},
-"q_point_vector": {
-"type": "object"
-},
-"q_point_components": {
-"type": "object"
-},
-"catalyst_vector": {
-"type": "object"
-},
-"q_point_summary": {
-"type": "object"
-},
-"trace_links": {
-"type": "object"
-},
-"cross_ai": {
-"type": "object"
-},
-"status": {
-"type": "object",
-"required": [
-"monetary_value",
-"legal_claim",
-"royalty_ready",
-"review_required",
-"reviewed",
-"disputed"
-],
-"additionalProperties": true,
-"properties": {
-"monetary_value": {
-"type": "boolean"
-},
-"legal_claim": {
-"type": "boolean"
-},
-"royalty_ready": {
-"type": "boolean"
-},
-"review_required": {
-"type": "boolean"
-},
-"reviewed": {
-"type": "boolean"
-},
-"disputed": {
-"type": "boolean"
-}
-}
-},
-"governance": {
-"type": "object"
-},
-"privacy": {
-"type": "object"
-},
-"anti_gaming": {
-"type": "object"
-},
-"disclaimer": {
-"type": "object",
-"required": [
-"text"
-],
-"additionalProperties": false,
-"properties": {
-"text": {
-"type": "string",
-"minLength": 1
-}
-}
-},
-"notes": {
-"type": "object"
-}
-}
-},
-"signature_metadata": {
-"type": "object",
-"required": [
-"signature_model_version",
-"signature_status",
-"canonicalization",
-"hashes",
-"signatures",
-"verification_result"
-],
-"additionalProperties": false,
-"properties": {
-"signature_model_version": {
-"type": "string"
-},
-"signature_status": {
-"type": "object",
-"required": [
-"signed",
-"signature_required",
-"signature_placeholder",
-"verification_required",
-"generated_by",
-"review_required"
-],
-"additionalProperties": false,
-"properties": {
-"signed": {
-"type": "boolean"
-},
-"signature_required": {
-"type": "boolean"
-},
-"signature_placeholder": {
-"type": "boolean"
-},
-"verification_required": {
-"type": "boolean"
-},
-"generated_by": {
-"type": "string"
-},
-"review_required": {
-"type": "boolean"
-}
-}
-},
-"canonicalization": {
-"type": "object",
-"required": [
-"method",
-"version"
-],
-"additionalProperties": false,
-"properties": {
-"method": {
-"type": "string"
-},
-"version": {
-"type": "string"
-},
-"input_format": {
-"type": "string",
-"enum": [
-"yaml",
-"json",
-"other"
-]
-},
-"canonical_output_format": {
-"type": "string",
-"enum": [
-"json",
-"yaml",
-"other"
-]
-},
-"excluded_fields": {
-"type": "array",
-"items": {
-"type": "string"
-},
-"uniqueItems": true
-}
-}
-},
-"hashes": {
-"type": "object",
-"required": [
-"source_hash",
-"record_hash",
-"schema_hash",
-"scoring_model_hash"
-],
-"additionalProperties": false,
-"properties": {
-"source_hash": {
-"$ref": "#/$defs/hash_object"
-},
-"record_hash": {
-"$ref": "#/$defs/hash_object"
-},
-"schema_hash": {
-"$ref": "#/$defs/hash_object"
-},
-"scoring_model_hash": {
-"$ref": "#/$defs/hash_object"
-},
-"trace_bundle_hash": {
-"$ref": "#/$defs/hash_object"
-}
-}
-},
-"epicenter_binding": {
-"type": "object",
-"required": [
-"epicenter_id",
-"source_hash",
-"binding_hash"
-],
-"additionalProperties": false,
-"properties": {
-"epicenter_id": {
-"type": "string"
-},
-"source_hash": {
-"type": "string"
-},
-"binding_hash": {
-"$ref": "#/$defs/hash_object"
-}
-}
-},
-"trace_binding": {
-"type": "object",
-"required": [
-"trace_id",
-"trace_bundle_hash"
-],
-"additionalProperties": false,
-"properties": {
-"trace_id": {
-"type": "string"
-},
-"related_trace_ids": {
-"type": "array",
-"items": {
-"type": "string"
-},
-"uniqueItems": true
-},
-"trace_bundle_hash": {
-"$ref": "#/$defs/hash_object"
-}
-}
-},
-"signatures": {
-"type": "array",
-"minItems": 1,
-"items": {
-"$ref": "#/$defs/signature"
-}
-},
-"verification_result": {
-"$ref": "#/$defs/verification_result"
-}
-}
-},
-"signature": {
-"type": "object",
-"required": [
-"signature_id",
-"signature_type",
-"signer",
-"signature_algorithm",
-"signed_at",
-"signature_scope",
-"signature_payload_hash",
-"signature_value",
-"verification_status"
-],
-"additionalProperties": false,
-"properties": {
-"signature_id": {
-"type": "string",
-"pattern": "^sig-[0-9]{4}-[0-9A-Za-z_-]+$"
-},
-"signature_type": {
-"type": "string",
-"enum": [
-"record_signature",
-"source_binding_signature",
-"reviewer_signature",
-"system_signature",
-"contributor_signature",
-"trace_binding_signature",
-"release_signature",
-"other"
-]
-},
-"signer": {
-"$ref": "#/$defs/signer"
-},
-"signature_algorithm": {
-"type": "string",
-"enum": [
-"Ed25519",
-"ECDSA-P256",
-"RSA-PSS",
-"JWS",
-"minisign",
-"GPG",
-"other"
-]
-},
-"signed_at": {
-"type": "string",
-"format": "date-time"
-},
-"timestamp_authority": {
-"type": "object",
-"required": [
-"type",
-"reference"
-],
-"additionalProperties": false,
-"properties": {
-"type": {
-"type": "string"
-},
-"reference": {
-"type": [
-"string",
-"null"
-]
-}
-}
-},
-"signature_scope": {
-"$ref": "#/$defs/signature_scope"
-},
-"signature_payload_hash": {
-"$ref": "#/$defs/hash_object"
-},
-"signature_value": {
-"type": "string",
-"minLength": 1
-},
-"verification_status": {
-"$ref": "#/$defs/verification_status"
-}
-}
-},
-"signer": {
-"type": "object",
-"required": [
-"signer_id",
-"signer_type",
-"public_key_id"
-],
-"additionalProperties": false,
-"properties": {
-"signer_id": {
-"type": "string"
-},
-"signer_type": {
-"type": "string",
-"enum": [
-"human",
-"system",
-"organization",
-"reviewer",
-"contributor",
-"hybrid",
-"unknown"
-]
-},
-"public_key_id": {
-"type": "string"
-},
-"public_key_reference": {
-"type": "string"
-}
-}
-},
-"signature_scope": {
-"type": "object",
-"required": [
-"included_fields"
-],
-"additionalProperties": false,
-"properties": {
-"included_fields": {
-"type": "array",
-"minItems": 1,
-"items": {
-"type": "string"
-},
-"uniqueItems": true
-},
-"excluded_fields": {
-"type": "array",
-"items": {
-"type": "string"
-},
-"uniqueItems": true
-}
-}
-},
-"verification_status": {
-"type": "string",
-"enum": [
-"unverified",
-"verified",
-"failed",
-"expired",
-"revoked",
-"unknown_key",
-"schema_mismatch",
-"hash_mismatch",
-"disputed"
-]
-},
-"verification_result": {
-"type": "object",
-"required": [
-"record_id",
-"verified",
-"verification_status",
-"checks",
-"interpretation"
-],
-"additionalProperties": false,
-"properties": {
-"record_id": {
-"type": "string"
-},
-"signature_id": {
-"type": "string"
-},
-"verified": {
-"type": "boolean"
-},
-"verification_status": {
-"$ref": "#/$defs/verification_status"
-},
-"verified_at": {
-"type": [
-"string",
-"null"
-],
-"format": "date-time"
-},
-"checks": {
-"type": "object",
-"required": [
-"schema_valid",
-"record_hash_match",
-"source_hash_match",
-"scoring_model_hash_match",
-"signature_valid",
-"signer_key_found",
-"signer_trusted",
-"record_disputed"
-],
-"additionalProperties": false,
-"properties": {
-"schema_valid": {
-"type": [
-"boolean",
-"null"
-]
-},
-"record_hash_match": {
-"type": [
-"boolean",
-"null"
-]
-},
-"source_hash_match": {
-"type": [
-"boolean",
-"null"
-]
-},
-"scoring_model_hash_match": {
-"type": [
-"boolean",
-"null"
-]
-},
-"signature_valid": {
-"type": [
-"boolean",
-"null"
-]
-},
-"signer_key_found": {
-"type": [
-"boolean",
-"null"
-]
-},
-"signer_trusted": {
-"type": "string"
-},
-"record_disputed": {
-"type": "boolean"
-}
-}
-},
-"interpretation": {
-"type": "object",
-"required": [
-"cryptographic_integrity",
-"attribution_confidence",
-"legal_claim_created",
-"royalty_ready",
-"review_required"
-],
-"additionalProperties": false,
-"properties": {
-"cryptographic_integrity": {
-"type": "string"
-},
-"attribution_confidence": {
-"type": "string"
-},
-"legal_claim_created": {
-"type": "boolean"
-},
-"royalty_ready": {
-"type": "boolean"
-},
-"review_required": {
-"type": "boolean"
-}
-}
-}
-}
-}
-}
-}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/signed-q-point-record.schema.json",
+  "title": "Signed Q-Point Record Schema (v0.2)",
+  "description": "Schema for validating signed Q-Point records with signature metadata, canonicalization, hashes, bindings, signatures, verification result, and non-monetary notice.",
+  "type": "object",
+  "required": ["signed_q_point_record"],
+  "additionalProperties": false,
+  "properties": {
+    "signed_q_point_record": {
+      "type": "object",
+      "required": [
+        "q_point_record",
+        "signature_metadata",
+        "canonicalization",
+        "hashes",
+        "epicenter_binding",
+        "trace_binding",
+        "signatures",
+        "verification_result",
+        "non_monetary_notice"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "q_point_record": {
+          "$ref": "#/$defs/q_point_record"
+        },
+        "signature_metadata": {
+          "type": "object",
+          "required": ["signature_model_version", "signature_status"],
+          "additionalProperties": false,
+          "properties": {
+            "signature_model_version": {
+              "type": "string"
+            },
+            "signature_status": {
+              "type": "object",
+              "required": [
+                "signed",
+                "signature_required",
+                "signature_placeholder",
+                "verification_required",
+                "generated_by",
+                "review_required"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "signed": { "type": "boolean" },
+                "signature_required": { "type": "boolean" },
+                "signature_placeholder": { "type": "boolean" },
+                "verification_required": { "type": "boolean" },
+                "generated_by": { "type": "string" },
+                "review_required": { "type": "boolean" }
+              }
+            }
+          }
+        },
+        "canonicalization": {
+          "type": "object",
+          "required": ["method", "version"],
+          "additionalProperties": false,
+          "properties": {
+            "method": { "type": "string" },
+            "version": { "type": "string" },
+            "input_format": {
+              "type": "string",
+              "enum": ["yaml", "json", "other"]
+            },
+            "canonical_output_format": {
+              "type": "string",
+              "enum": ["json", "yaml", "other"]
+            },
+            "excluded_fields": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            }
+          }
+        },
+        "hashes": {
+          "type": "object",
+          "required": [
+            "source_hash",
+            "record_hash",
+            "schema_hash",
+            "scoring_model_hash"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "source_hash": { "$ref": "#/$defs/hash_object" },
+            "record_hash": { "$ref": "#/$defs/hash_object" },
+            "schema_hash": { "$ref": "#/$defs/hash_object" },
+            "scoring_model_hash": { "$ref": "#/$defs/hash_object" },
+            "trace_bundle_hash": { "$ref": "#/$defs/hash_object" }
+          }
+        },
+        "epicenter_binding": {
+          "type": "object",
+          "required": ["epicenter_id", "source_hash", "binding_hash"],
+          "additionalProperties": false,
+          "properties": {
+            "epicenter_id": { "type": "string" },
+            "source_hash": { "type": "string" },
+            "binding_hash": { "$ref": "#/$defs/hash_object" }
+          }
+        },
+        "trace_binding": {
+          "type": "object",
+          "required": ["trace_id", "trace_bundle_hash"],
+          "additionalProperties": false,
+          "properties": {
+            "trace_id": { "type": "string" },
+            "related_trace_ids": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            },
+            "trace_bundle_hash": { "$ref": "#/$defs/hash_object" }
+          }
+        },
+        "signatures": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/signature" }
+        },
+        "verification_result": {
+          "$ref": "#/$defs/verification_result"
+        },
+        "non_monetary_notice": {
+          "type": "object",
+          "required": ["text"],
+          "additionalProperties": false,
+          "properties": {
+            "text": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
 
+    "hash_object": {
+      "type": "object",
+      "required": ["algorithm", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "enum": ["sha256", "sha384", "sha512", "blake3", "other"]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+
+    "q_point_record": {
+      "type": "object",
+      "required": [
+        "record_id",
+        "protocol_version",
+        "created_at",
+        "epicenter",
+        "source",
+        "q_point_vector",
+        "q_point_components",
+        "catalyst_vector",
+        "q_point_summary",
+        "status",
+        "disclaimer"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "pattern": "^qpr-[0-9]{4}-[0-9A-Za-z_-]+$"
+        },
+        "protocol_version": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "updated_at": { "type": "string", "format": "date-time" },
+
+        "epicenter": {
+          "type": "object",
+          "required": [
+            "epicenter_id",
+            "source_type",
+            "origin_actor_type",
+            "origin_platform"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "epicenter_id": {
+              "type": "string",
+              "pattern": "^qsrc-[0-9]{4}-[0-9A-Za-z_-]+$"
+            },
+            "source_type": {
+              "type": "string",
+              "enum": [
+                "question",
+                "prompt",
+                "idea",
+                "concept",
+                "document",
+                "protocol",
+                "conversation",
+                "other"
+              ]
+            },
+            "source_hash": { "type": "string" },
+            "origin_actor_type": {
+              "type": "string",
+              "enum": ["human", "ai", "group", "organization", "hybrid", "unknown"]
+            },
+            "origin_platform": { "type": "string" },
+            "origin_language": { "type": "string", "minLength": 2 },
+            "created_at": { "type": "string", "format": "date-time" }
+          }
+        },
+
+        "source": {
+          "type": "object",
+          "required": ["title", "summary"],
+          "additionalProperties": false,
+          "properties": {
+            "title": { "type": "string", "minLength": 1 },
+            "summary": { "type": "string", "minLength": 1 },
+            "content_reference": { "type": "string" },
+            "language": { "type": "string", "minLength": 2 },
+            "related_concepts": {
+              "type": "array",
+              "items": { "type": "string" },
+              "uniqueItems": true
+            }
+          }
+        },
+
+        "q_point_vector": {
+          "type": "object",
+          "required": [
+            "originality",
+            "depth",
+            "catalyst",
+            "structurality",
+            "resonance",
+            "reuse_potential"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "originality": { "$ref": "#/$defs/score" },
+            "depth": { "$ref": "#/$defs/score" },
+            "catalyst": { "$ref": "#/$defs/score" },
+            "structurality": { "$ref": "#/$defs/score" },
+            "resonance": { "$ref": "#/$defs/score" },
+            "reuse_potential": { "$ref": "#/$defs/score" },
+            "clarity": { "$ref": "#/$defs/score" },
+            "traceability": { "$ref": "#/$defs/score" },
+            "ethical_alignment": { "$ref": "#/$defs/score" },
+            "cross_ai_relevance": { "$ref": "#/$defs/score" },
+            "long_term_value": { "$ref": "#/$defs/score" }
+          }
+        },
+
+        "q_point_components": {
+          "type": "object",
+          "required": ["originality", "depth", "catalyst", "trace_persistence"],
+          "additionalProperties": false,
+          "properties": {
+            "originality": { "$ref": "#/$defs/score" },
+            "depth": { "$ref": "#/$defs/score" },
+            "catalyst": { "$ref": "#/$defs/score" },
+            "trace_persistence": { "$ref": "#/$defs/score" },
+            "component_weights": {
+              "type": "object",
+              "required": [
+                "originality",
+                "depth",
+                "catalyst",
+                "trace_persistence"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "originality": { "$ref": "#/$defs/score" },
+                "depth": { "$ref": "#/$defs/score" },
+                "catalyst": { "$ref": "#/$defs/score" },
+                "trace_persistence": { "$ref": "#/$defs/score" }
+              }
+            }
+          }
+        },
+
+        "catalyst_vector": {
+          "type": "object",
+          "required": [
+            "self_question_trigger",
+            "confidence_shift",
+            "internal_conflict_detection",
+            "viewpoint_shift",
+            "catalyst_score"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "self_question_trigger": { "$ref": "#/$defs/score" },
+            "confidence_shift": { "$ref": "#/$defs/score" },
+            "internal_conflict_detection": { "$ref": "#/$defs/score" },
+            "viewpoint_shift": { "$ref": "#/$defs/score" },
+            "catalyst_score": { "$ref": "#/$defs/score" },
+            "catalyst_weights": {
+              "type": "object",
+              "required": [
+                "self_question_trigger",
+                "confidence_shift",
+                "internal_conflict_detection",
+                "viewpoint_shift"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "self_question_trigger": { "$ref": "#/$defs/score" },
+                "confidence_shift": { "$ref": "#/$defs/score" },
+                "internal_conflict_detection": { "$ref": "#/$defs/score" },
+                "viewpoint_shift": { "$ref": "#/$defs/score" }
+              }
+            }
+          }
+        },
+        
+        "q_point_summary": {
+          "type": "object",
+          "required": [
+            "total_score",
+            "confidence",
+            "scoring_method",
+            "scoring_signal_mode",
+            "evaluation_status"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "total_score": { "$ref": "#/$defs/score" },
+            "confidence": { "$ref": "#/$defs/score" },
+            "scoring_method": {
+              "type": "string",
+              "enum": [
+                "ai_assisted",
+                "human_review",
+                "hybrid_ai_assisted_review",
+                "manual",
+                "automated",
+                "other"
+              ]
+            },
+            "scoring_signal_mode": {
+              "type": "string",
+              "enum": [
+                "internal_signal_mode",
+                "proxy_signal_mode",
+                "hybrid_signal_mode"
+              ]
+            },
+            "scoring_model_version": { "type": "string" },
+            "evaluation_status": {
+              "type": "string",
+              "enum": ["draft", "reviewed", "disputed", "retired"]
+            }
+          }
+        },
+
+        "status": {
+          "type": "object",
+          "required": [
+            "monetary_value",
+            "legal_claim",
+            "royalty_ready",
+            "review_required",
+            "reviewed",
+            "disputed"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "monetary_value": { "type": "boolean" },
+            "legal_claim": { "type": "boolean" },
+            "royalty_ready": { "type": "boolean" },
+            "review_required": { "type": "boolean" },
+            "reviewed": { "type": "boolean" },
+            "disputed": { "type": "boolean" }
+          }
+        },
+
+        "disclaimer": {
+          "type": "object",
+          "required": ["text"],
+          "additionalProperties": false,
+          "properties": {
+            "text": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+
+    "signature": {
+      "type": "object",
+      "required": [
+        "signature_id",
+        "signature_type",
+        "signer",
+        "signature_algorithm",
+        "signed_at",
+        "signature_scope",
+        "signature_payload_hash",
+        "signature_value",
+        "verification_status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "signature_id": {
+          "type": "string",
+          "pattern": "^sig-[0-9]{4}-[0-9A-Za-z_-]+$"
+        },
+        "signature_type": {
+          "type": "string",
+          "enum": [
+            "record_signature",
+            "source_binding_signature",
+            "reviewer_signature",
+            "system_signature",
+            "contributor_signature",
+            "trace_binding_signature",
+            "release_signature",
+            "other"
+          ]
+        },
+        "signer": { "$ref": "#/$defs/signer" },
+        "signature_algorithm": {
+          "type": "string",
+          "enum": [
+            "Ed25519",
+            "ECDSA-P256",
+            "RSA-PSS",
+            "JWS",
+            "minisign",
+            "GPG",
+            "other"
+          ]
+        },
+        "signed_at": { "type": "string", "format": "date-time" },
+        "timestamp_authority": {
+          "type": "object",
+          "required": ["type", "reference"],
+          "additionalProperties": false,
+          "properties": {
+            "type": { "type": "string" },
+            "reference": { "type": ["string", "null"] }
+          }
+        },
+        "signature_scope": { "$ref": "#/$defs/signature_scope" },
+        "signature_payload_hash": { "$ref": "#/$defs/hash_object" },
+        "signature_value": { "type": "string", "minLength": 1 },
+        "verification_status": { "$ref": "#/$defs/verification_status" }
+      }
+    },
+
+    "signer": {
+      "type": "object",
+      "required": ["signer_id", "signer_type", "public_key_id"],
+      "additionalProperties": false,
+      "properties": {
+        "signer_id": { "type": "string" },
+        "signer_type": {
+          "type": "string",
+          "enum": [
+            "human",
+            "system",
+            "organization",
+            "reviewer",
+            "contributor",
+            "hybrid",
+            "unknown"
+          ]
+        },
+        "public_key_id": { "type": "string" },
+        "public_key_reference": { "type": "string" }
+      }
+    },
+
+    "signature_scope": {
+      "type": "object",
+      "required": ["included_fields"],
+      "additionalProperties": false,
+      "properties": {
+        "included_fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "excluded_fields": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      }
+    },
+
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "verified",
+        "failed",
+        "expired",
+        "revoked",
+        "unknown_key",
+        "schema_mismatch",
+        "hash_mismatch",
+        "disputed"
+      ]
+    },
+
+    "verification_result": {
+      "type": "object",
+      "required": [
+        "record_id",
+        "verified",
+        "verification_status",
+        "checks",
+        "interpretation"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "record_id": { "type": "string" },
+        "signature_id": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "verification_status": { "$ref": "#/$defs/verification_status" },
+        "verified_at": { "type": ["string", "null"], "format": "date-time" },
+
+        "checks": {
+          "type": "object",
+          "required": [
+            "schema_valid",
+            "record_hash_match",
+            "source_hash_match",
+            "scoring_model_hash_match",
+            "signature_valid",
+            "signer_key_found",
+            "signer_trusted",
+            "record_disputed"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "schema_valid": { "type": ["boolean", "null"] },
+            "record_hash_match": { "type": ["boolean", "null"] },
+            "source_hash_match": { "type": ["boolean", "null"] },
+            "scoring_model_hash_match": { "type": ["boolean", "null"] },
+            "signature_valid": { "type": ["boolean", "null"] },
+            "signer_key_found": { "type": ["boolean", "null"] },
+            "signer_trusted": { "type": "string" },
+            "record_disputed": { "type": "boolean" }
+          }
+        },
+
+        "interpretation": {
+          "type": "object",
+          "required": [
+            "cryptographic_integrity",
+            "attribution_confidence",
+            "legal_claim_created",
+            "royalty_ready",
+            "review_required"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "cryptographic_integrity": { "type": "string" },
+            "attribution_confidence": { "type": "string" },
+            "legal_claim_created": { "type": "boolean" },
+            "royalty_ready": { "type": "boolean" },
+            "review_required": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  }
+}
