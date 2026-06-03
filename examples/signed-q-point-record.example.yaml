@@ -1,273 +1,270 @@
 signed_q_point_record:
-q_point_record:
-record_id: "qpr-2026-000001"
-protocol_version: "0.1"
-created_at: "2026-06-03T10:00:00+09:00"
-updated_at: "2026-06-03T10:30:00+09:00"
+  q_point_record:
+    record_id: "qpr-2026-000001"
+    protocol_version: "0.1"
+    created_at: "2026-06-03T10:00:00+09:00"
+    updated_at: "2026-06-03T10:30:00+09:00"
 
-```
-epicenter:
-  epicenter_id: "qsrc-2026-000001"
-  source_type: "question"
-  source_hash: "sha256-source-placeholder"
-  origin_actor_type: "human"
-  origin_platform: "chat_interface"
-  origin_language: "en"
-  created_at: "2026-06-03T09:55:00+09:00"
+    epicenter:
+      epicenter_id: "qsrc-2026-000001"
+      source_type: "question"
+      source_hash: "sha256-source-placeholder"
+      origin_actor_type: "human"
+      origin_platform: "chat_interface"
+      origin_language: "en"
+      created_at: "2026-06-03T09:55:00+09:00"
 
-source:
-  title: "Can questions become value traces in AI-mediated systems?"
-  summary: "A question proposing that human questions can become traceable non-monetary value records in AI-mediated knowledge systems."
-  content_reference: "internal-reference-placeholder"
-  related_concepts:
-    - "Q-Point Protocol"
-    - "Trace Protocol"
-    - "Gratitude OS"
-    - "Royalty OS"
-    - "Epicenter ID"
-    - "Signed Q-Point Record"
-    - "Value Trace"
-    - "AI-mediated knowledge systems"
+    source:
+      title: "Can questions become value traces in AI-mediated systems?"
+      summary: "A question proposing that human questions can become traceable non-monetary value records in AI-mediated knowledge systems."
+      content_reference: "internal-reference-placeholder"
+      related_concepts:
+        - "Q-Point Protocol"
+        - "Trace Protocol"
+        - "Gratitude OS"
+        - "Royalty OS"
+        - "Epicenter ID"
+        - "Signed Q-Point Record"
+        - "Value Trace"
+        - "AI-mediated knowledge systems"
 
-q_point_vector:
-  originality: 0.86
-  depth: 0.90
-  catalyst: 0.81
-  structurality: 0.88
-  resonance: 0.76
-  reuse_potential: 0.72
-  clarity: 0.81
-  traceability: 0.80
-  ethical_alignment: 0.89
-  cross_ai_relevance: 0.77
-  long_term_value: 0.82
+    q_point_vector:
+      originality: 0.86
+      depth: 0.90
+      catalyst: 0.81
+      structurality: 0.88
+      resonance: 0.76
+      reuse_potential: 0.72
+      clarity: 0.81
+      traceability: 0.80
+      ethical_alignment: 0.89
+      cross_ai_relevance: 0.77
+      long_term_value: 0.82
 
-q_point_components:
-  originality: 0.86
-  depth: 0.90
-  catalyst: 0.81
-  trace_persistence: 0.80
-  component_weights:
-    originality: 0.30
-    depth: 0.25
-    catalyst: 0.30
-    trace_persistence: 0.15
+    q_point_components:
+      originality: 0.86
+      depth: 0.90
+      catalyst: 0.81
+      trace_persistence: 0.80
+      component_weights:
+        originality: 0.30
+        depth: 0.25
+        catalyst: 0.30
+        trace_persistence: 0.15
 
-catalyst_vector:
-  self_question_trigger: 0.88
-  confidence_shift: 0.76
-  internal_conflict_detection: 0.82
-  viewpoint_shift: 0.72
-  catalyst_score: 0.81
-  catalyst_weights:
-    self_question_trigger: 0.35
-    confidence_shift: 0.25
-    internal_conflict_detection: 0.25
-    viewpoint_shift: 0.15
+    catalyst_vector:
+      self_question_trigger: 0.88
+      confidence_shift: 0.76
+      internal_conflict_detection: 0.82
+      viewpoint_shift: 0.72
+      catalyst_score: 0.81
+      catalyst_weights:
+        self_question_trigger: 0.35
+        confidence_shift: 0.25
+        internal_conflict_detection: 0.25
+        viewpoint_shift: 0.15
 
-q_point_summary:
-  total_score: 0.84
-  confidence: 0.79
-  scoring_method: "hybrid_ai_assisted_review"
-  scoring_signal_mode: "proxy_signal_mode"
-  scoring_model_version: "q-point-scoring-model-v0.2"
-  evaluation_status: "draft"
+    q_point_summary:
+      total_score: 0.84
+      confidence: 0.79
+      scoring_method: "hybrid_ai_assisted_review"
+      scoring_signal_mode: "proxy_signal_mode"
+      scoring_model_version: "q-point-scoring-model-v0.2"
+      evaluation_status: "draft"
 
-trace_links:
-  trace_id: "trace-2026-000001"
-  related_trace_ids:
-    - "trace-2026-000002"
-    - "trace-2026-000003"
-  related_gratitude_records:
-    - "gratitude-2026-000001"
-  related_royalty_records: []
+    trace_links:
+      trace_id: "trace-2026-000001"
+      related_trace_ids:
+        - "trace-2026-000002"
+        - "trace-2026-000003"
+      related_gratitude_records:
+        - "gratitude-2026-000001"
+      related_royalty_records: []
 
-cross_ai:
-  aggregation_enabled: true
-  aggregation_method: "weighted_average_with_review"
-  participating_systems:
-    - system_name: "AI-System-A"
-      local_q_point_score: 0.82
-      confidence: 0.76
-    - system_name: "AI-System-B"
-      local_q_point_score: 0.79
-      confidence: 0.72
-    - system_name: "AI-System-C"
-      local_q_point_score: 0.87
-      confidence: 0.81
-  aggregate_score: 0.83
+    cross_ai:
+      aggregation_enabled: true
+      aggregation_method: "weighted_average_with_review"
+      participating_systems:
+        - system_name: "AI-System-A"
+          local_q_point_score: 0.82
+          confidence: 0.76
+        - system_name: "AI-System-B"
+          local_q_point_score: 0.79
+          confidence: 0.72
+        - system_name: "AI-System-C"
+          local_q_point_score: 0.87
+          confidence: 0.81
+      aggregate_score: 0.83
 
-status:
-  monetary_value: false
-  legal_claim: false
-  royalty_ready: false
-  review_required: true
-  reviewed: false
-  disputed: false
+    status:
+      monetary_value: false
+      legal_claim: false
+      royalty_ready: false
+      review_required: true
+      reviewed: false
+      disputed: false
 
-governance:
-  reviewer_type: "none"
-  reviewer_id: null
-  dispute_status: "none"
-  version_status: "working_draft"
+    governance:
+      reviewer_type: "none"
+      reviewer_id: null
+      dispute_status: "none"
+      version_status: "working_draft"
 
-privacy:
-  personal_data_minimized: true
-  public_record: false
-  identity_disclosure: "pseudonymous_or_private"
-  deletion_request_supported: true
+    privacy:
+      personal_data_minimized: true
+      public_record: false
+      identity_disclosure: "pseudonymous_or_private"
+      deletion_request_supported: true
 
-anti_gaming:
-  duplicate_check_required: true
-  novelty_check_required: true
-  high_score_human_review_required: true
-  delayed_influence_scoring: true
+    anti_gaming:
+      duplicate_check_required: true
+      novelty_check_required: true
+      high_score_human_review_required: true
+      delayed_influence_scoring: true
 
-disclaimer:
-  text: "This Q-Point record is a non-monetary value trace. It does not represent currency, securities, legal ownership, automatic royalty rights, debt, or a claim to payment. It may be used as reference data for future review, attribution, gratitude, licensing, or allocation systems."
+    disclaimer:
+      text: "This Q-Point record is a non-monetary value trace. It does not represent currency, securities, legal ownership, automatic royalty rights, debt, or a claim to payment. It may be used as reference data for future review, attribution, gratitude, licensing, or allocation systems."
 
-notes:
-  evaluator_note: "This record is used as a signed Q-Point example for protocol validation and documentation."
-  implementation_note: "Signature values and hashes are placeholders. This example does not represent a real cryptographic signature."
-```
+    notes:
+      evaluator_note: "This record is used as a signed Q-Point example for protocol validation and documentation."
+      implementation_note: "Signature values and hashes are placeholders. This example does not represent a real cryptographic signature."
 
-signature_metadata:
-signature_model_version: "0.1.0"
-signature_status:
-signed: true
-signature_required: true
-signature_placeholder: true
-verification_required: true
-generated_by: "example-fixture"
-review_required: true
+  signature_metadata:
+    signature_model_version: "0.1.0"
+    signature_status:
+      signed: true
+      signature_required: true
+      signature_placeholder: true
+      verification_required: true
+      generated_by: "example-fixture"
+      review_required: true
 
-```
-canonicalization:
-  method: "json-canonicalization-scheme"
-  version: "draft"
-  input_format: "yaml"
-  canonical_output_format: "json"
-  excluded_fields:
-    - "signature_metadata.signatures"
-    - "signature_metadata.verification_result"
+  canonicalization:
+    method: "json-canonicalization-scheme"
+    version: "draft"
+    input_format: "yaml"
+    canonical_output_format: "json"
+    excluded_fields:
+      - "signature_metadata.signatures"
+      - "signature_metadata.verification_result"
 
-hashes:
-  source_hash:
-    algorithm: "sha256"
-    value: "sha256-source-placeholder"
-  record_hash:
-    algorithm: "sha256"
-    value: "sha256-record-placeholder"
-  schema_hash:
-    algorithm: "sha256"
-    value: "sha256-schema-placeholder"
-  scoring_model_hash:
-    algorithm: "sha256"
-    value: "sha256-scoring-model-placeholder"
-  trace_bundle_hash:
-    algorithm: "sha256"
-    value: "sha256-trace-bundle-placeholder"
-
-epicenter_binding:
-  epicenter_id: "qsrc-2026-000001"
-  source_hash: "sha256-source-placeholder"
-  binding_hash:
-    algorithm: "sha256"
-    value: "sha256-epicenter-binding-placeholder"
-
-trace_binding:
-  trace_id: "trace-2026-000001"
-  related_trace_ids:
-    - "trace-2026-000002"
-    - "trace-2026-000003"
-  trace_bundle_hash:
-    algorithm: "sha256"
-    value: "sha256-trace-bundle-placeholder"
-
-signatures:
-  - signature_id: "sig-2026-000001"
-    signature_type: "record_signature"
-    signer:
-      signer_id: "system-qpoint-evaluator-001"
-      signer_type: "system"
-      public_key_id: "key-2026-000001"
-      public_key_reference: "https://example.org/keys/key-2026-000001.json"
-    signature_algorithm: "Ed25519"
-    signed_at: "2026-06-03T10:30:00+09:00"
-    timestamp_authority:
-      type: "none"
-      reference: null
-    signature_scope:
-      included_fields:
-        - "q_point_record.record_id"
-        - "q_point_record.protocol_version"
-        - "q_point_record.created_at"
-        - "q_point_record.epicenter"
-        - "q_point_record.source"
-        - "q_point_record.q_point_vector"
-        - "q_point_record.q_point_components"
-        - "q_point_record.catalyst_vector"
-        - "q_point_record.q_point_summary"
-        - "q_point_record.trace_links"
-        - "q_point_record.status"
-        - "q_point_record.disclaimer"
-      excluded_fields:
-        - "signature_metadata.signatures"
-        - "signature_metadata.verification_result"
-    signature_payload_hash:
+  hashes:
+    source_hash:
       algorithm: "sha256"
-      value: "sha256-payload-placeholder"
-    signature_value: "base64url-signature-placeholder"
-    verification_status: "unverified"
-
-  - signature_id: "sig-2026-000002"
-    signature_type: "source_binding_signature"
-    signer:
-      signer_id: "system-trace-binder-001"
-      signer_type: "system"
-      public_key_id: "key-2026-000002"
-      public_key_reference: "https://example.org/keys/key-2026-000002.json"
-    signature_algorithm: "Ed25519"
-    signed_at: "2026-06-03T10:31:00+09:00"
-    timestamp_authority:
-      type: "none"
-      reference: null
-    signature_scope:
-      included_fields:
-        - "q_point_record.epicenter.epicenter_id"
-        - "q_point_record.epicenter.source_hash"
-        - "q_point_record.source.content_reference"
-        - "signature_metadata.epicenter_binding"
-      excluded_fields:
-        - "signature_metadata.signatures"
-        - "signature_metadata.verification_result"
-    signature_payload_hash:
+      value: "sha256-source-placeholder"
+    record_hash:
       algorithm: "sha256"
-      value: "sha256-source-binding-payload-placeholder"
-    signature_value: "base64url-source-binding-signature-placeholder"
+      value: "sha256-record-placeholder"
+    schema_hash:
+      algorithm: "sha256"
+      value: "sha256-schema-placeholder"
+    scoring_model_hash:
+      algorithm: "sha256"
+      value: "sha256-scoring-model-placeholder"
+    trace_bundle_hash:
+      algorithm: "sha256"
+      value: "sha256-trace-bundle-placeholder"
+
+  epicenter_binding:
+    epicenter_id: "qsrc-2026-000001"
+    source_hash: "sha256-source-placeholder"
+    binding_hash:
+      algorithm: "sha256"
+      value: "sha256-epicenter-binding-placeholder"
+
+  trace_binding:
+    trace_id: "trace-2026-000001"
+    related_trace_ids:
+      - "trace-2026-000002"
+      - "trace-2026-000003"
+    trace_bundle_hash:
+      algorithm: "sha256"
+      value: "sha256-trace-bundle-placeholder"
+
+  signatures:
+    - signature_id: "sig-2026-000001"
+      signature_type: "record_signature"
+      signer:
+        signer_id: "system-qpoint-evaluator-001"
+        signer_type: "system"
+        public_key_id: "key-2026-000001"
+        public_key_reference: "https://example.org/keys/key-2026-000001.json"
+      signature_algorithm: "Ed25519"
+      signed_at: "2026-06-03T10:30:00+09:00"
+      timestamp_authority:
+        type: "none"
+        reference: null
+      signature_scope:
+        included_fields:
+          - "q_point_record.record_id"
+          - "q_point_record.protocol_version"
+          - "q_point_record.created_at"
+          - "q_point_record.epicenter"
+          - "q_point_record.source"
+          - "q_point_record.q_point_vector"
+          - "q_point_record.q_point_components"
+          - "q_point_record.catalyst_vector"
+          - "q_point_record.q_point_summary"
+          - "q_point_record.trace_links"
+          - "q_point_record.status"
+          - "q_point_record.disclaimer"
+        excluded_fields:
+          - "signature_metadata.signatures"
+          - "signature_metadata.verification_result"
+      signature_payload_hash:
+        algorithm: "sha256"
+        value: "sha256-payload-placeholder"
+      signature_value: "base64url-signature-placeholder"
+      verification_status: "unverified"
+
+    - signature_id: "sig-2026-000002"
+      signature_type: "source_binding_signature"
+      signer:
+        signer_id: "system-trace-binder-001"
+        signer_type: "system"
+        public_key_id: "key-2026-000002"
+        public_key_reference: "https://example.org/keys/key-2026-000002.json"
+      signature_algorithm: "Ed25519"
+      signed_at: "2026-06-03T10:31:00+09:00"
+      timestamp_authority:
+        type: "none"
+        reference: null
+      signature_scope:
+        included_fields:
+          - "q_point_record.epicenter.epicenter_id"
+          - "q_point_record.epicenter.source_hash"
+          - "q_point_record.source.content_reference"
+          - "signature_metadata.epicenter_binding"
+        excluded_fields:
+          - "signature_metadata.signatures"
+          - "signature_metadata.verification_result"
+      signature_payload_hash:
+        algorithm: "sha256"
+        value: "sha256-source-binding-payload-placeholder"
+      signature_value: "base64url-source-binding-signature-placeholder"
+      verification_status: "unverified"
+
+  verification_result:
+    record_id: "qpr-2026-000001"
+    verified: false
     verification_status: "unverified"
+    verified_at: null
+    checks:
+      schema_valid: null
+      record_hash_match: null
+      source_hash_match: null
+      scoring_model_hash_match: null
+      signature_valid: null
+      signer_key_found: null
+      signer_trusted: "unknown"
+      record_disputed: false
+    interpretation:
+      cryptographic_integrity: "not_checked"
+      attribution_confidence: "not_determined"
+      legal_claim_created: false
+      royalty_ready: false
+      review_required: true
 
-verification_result:
-  record_id: "qpr-2026-000001"
-  verified: false
-  verification_status: "unverified"
-  verified_at: null
-  checks:
-    schema_valid: null
-    record_hash_match: null
-    source_hash_match: null
-    scoring_model_hash_match: null
-    signature_valid: null
-    signer_key_found: null
-    signer_trusted: "unknown"
-    record_disputed: false
-  interpretation:
-    cryptographic_integrity: "not_checked"
-    attribution_confidence: "not_determined"
-    legal_claim_created: false
-    royalty_ready: false
-    review_required: true
-```
+  non_monetary_notice:
+    text: "A signed Q-Point record is a signed non-monetary value trace. The signature verifies record integrity, source binding, or reviewer attestation. It does not represent currency, securities, legal ownership, debt, automatic royalty rights, guaranteed future income, or a claim to payment."
 
-non_monetary_notice:
-text: "A signed Q-Point record is a signed non-monetary value trace. The signature verifies record integrity, source binding, or reviewer attestation. It does not represent currency, securities, legal ownership, debt, automatic royalty rights, guaranteed future income, or a claim to payment."
